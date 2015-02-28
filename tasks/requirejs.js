@@ -16,7 +16,9 @@ module.exports = {
             useStrict: true,
             dir: 'temp',
 
-            modules: ['main'],
+            modules: [{
+              name: 'main'
+            }],
 
             // Do not preserve license comments when working with source maps, incompatible.
             preserveLicenseComments: false
