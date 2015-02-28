@@ -91,7 +91,8 @@ module.exports = xtend({
 
     // Templates
     templates: {
-        src: 'templates/**'
+        src: 'templates/**',
+        dest: 'temp/'
     },
 
     // Tests

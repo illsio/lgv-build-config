@@ -12,5 +12,12 @@ module.exports = {
             src: [config.img.src],
             dest: config.img.dest
         }]
+    },
+    templates: {
+        files: [{
+            expand: true,
+            src: [config.templates.src],
+            dest: config.templates.dest
+        }]
     }
 };

@@ -59,6 +59,9 @@ module.exports = function (grunt) {
         // 'jscs',
         // 'scsslint',
         // 'autoprefixer'
+        'clean',
+        'copy',
+        'requirejs'
     ]);
 
     // Testing tasks
