@@ -7,7 +7,7 @@ var config = require('../config.default');
 
 
 module.exports = {
-    pages: {
+    compile: {
         options: {
             mainConfigFile: config.js.config,
             baseUrl: './js',
