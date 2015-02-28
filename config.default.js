@@ -92,7 +92,7 @@ module.exports = xtend({
     // Templates
     templates: {
         src: 'templates/**',
-        dest: 'temp/'
+        dest: 'dist/<%= pkg.version %>/'
     },
 
     // Tests
