@@ -6,7 +6,7 @@
 var xtend = require('xtend');
 
 /**
- * Load configuration files for Grunt
+ * Load configuration files for Grunt (Tasks)
  * @param  {string} path    Path to folder with tasks
  * @return {object}         All options
  */
@@ -59,9 +59,9 @@ module.exports = function (grunt) {
         // 'jscs',
         // 'scsslint',
         // 'autoprefixer'
-        'clean',
-        'copy',
-        'requirejs'
+        'clean:dev',
+        'copy:dev',
+        'server'
     ]);
 
     // Testing tasks

@@ -5,7 +5,12 @@
 
 var config = require('../config.default');
 
-module.exports = [
-    config.destDir,
-    config.tempDir
-];
+module.exports = {
+    dev: [
+        config.destDir.dev
+    ],
+    prod: [
+        config.destDir.prod,
+        config.tempDir
+    ]
+};

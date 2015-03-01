@@ -9,18 +9,14 @@ var config = require('../config.default');
 module.exports = {
     compile: {
         options: {
-            mainConfigFile: config.js.config,
-            baseUrl: './js',
+            baseUrl: config.js.baseUrl,
             removeCombined: true,
             findNestedDependencies: true,
-            useStrict: true,
+            useStrict: false,
             dir: 'temp',
-
             modules: [{
               name: 'main'
             }],
-
-            // Do not preserve license comments when working with source maps, incompatible.
             preserveLicenseComments: false
         }
     }

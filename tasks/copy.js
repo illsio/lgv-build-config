@@ -6,18 +6,36 @@
 var config = require('../config.default');
 
 module.exports = {
-    img: {
-        files: [{
-            expand: true,
-            src: [config.img.src],
-            dest: config.img.dest
-        }]
+    dev: {
+        img: {
+            files: [{
+                expand: true,
+                src: [config.img.src],
+                dest: config.destDir.dev
+            }]
+        },
+        templates: {
+            files: [{
+                expand: true,
+                src: [config.templates.src],
+                dest: config.destDir.dev
+            }]
+        }
     },
-    templates: {
-        files: [{
-            expand: true,
-            src: [config.templates.src],
-            dest: config.templates.dest
-        }]
+    prod: {
+        img: {
+            files: [{
+                expand: true,
+                src: [config.img.src],
+                dest: config.destDir.prod
+            }]
+        },
+        templates: {
+            files: [{
+                expand: true,
+                src: [config.templates.src],
+                dest: config.destDir.prod
+            }]
+        }
     }
 };

@@ -19,7 +19,10 @@ module.exports = xtend({
     banner: '/*! ' + pkg.name + ' - v' + pkg.version + ' - ' +
         '<%= grunt.template.today("yyyy-mm-dd") %> */',
 
-    destDir: 'dist/',
+    destDir: {
+        dev: 'test/visual/dist/',
+        prod: 'dist/<%= pkg.version %>/',
+    },
 
     tempDir: 'temp/',
 
@@ -29,8 +32,8 @@ module.exports = xtend({
     jsHintFiles: [
         'Gruntfile.js',
         '*.js',
-        'modules/**/*.js',
-        'js/*.js',
+        'tasks/**/*.js',
+        'js/**/*.js',
         'test/*.js',
         'test/specs/**/*.js'
     ],
@@ -51,7 +54,7 @@ module.exports = xtend({
         files: [
             'js/**/*.js'
         ],
-        config: 'js/config.js',
+        baseUrl: './js',
         dest: 'dist/<%= pkg.version %>/',
         temp: 'temp/'
     },
@@ -85,14 +88,12 @@ module.exports = xtend({
 
     // Images
     img: {
-        src: 'img/**',
-        dest: 'dist/<%= pkg.version %>/'
+        src: 'img/**'
     },
 
     // Templates
     templates: {
-        src: 'templates/**',
-        dest: 'dist/<%= pkg.version %>/'
+        src: 'templates/**'
     },
 
     // Tests
