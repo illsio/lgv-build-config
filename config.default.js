@@ -4,15 +4,9 @@
 'use strict';
 
 var pkg = require('../../package');
-var xtend = require('xtend');
-var customConfig = {};
 var grunt = process.grunt;
 
-if (grunt.file.exists('config.js')) {
-    customConfig = require('../../config');
-}
-
-module.exports = xtend({
+module.exports = {
     pkg: pkg,
 
     // A banner for distributed files (name, version, license, date)
@@ -20,13 +14,10 @@ module.exports = xtend({
         '<%= grunt.template.today("yyyy-mm-dd") %> */',
 
     destDir: {
-        dev: 'test/visual/dist/',
-        prod: 'dist/<%= pkg.version %>/',
+        prod: 'dist/<%= pkg.version %>/'
     },
 
-    tempDir: 'temp/',
-
-    requirejs: '../components/requirejs/require',
+    requirejs: 'components/requirejs/require.js',
 
     // All files that should be checked with JSHint
     jsHintFiles: [
@@ -54,15 +45,13 @@ module.exports = xtend({
         files: [
             'js/**/*.js'
         ],
-        baseUrl: './js',
-        dest: 'dist/<%= pkg.version %>/',
-        temp: 'temp/'
+        dest: 'dist/<%= pkg.version %>/js/'
     },
 
     // JavaScript files
     css: {
         files: [
-            'css/**/*.css'
+            'css/style.css'
         ],
         dest: 'dist/<%= pkg.version %>/'
     },
@@ -88,12 +77,13 @@ module.exports = xtend({
 
     // Images
     img: {
-        src: 'img/**'
+        src: 'img/'
     },
 
-    // Templates
-    templates: {
-        src: 'templates/**'
+    // Fonts
+    fonts: {
+        src: 'components/bootstrap/dist/fonts',
+        dest: 'dist/<%= pkg.version %>/fonts'
     },
 
     // Tests
@@ -101,4 +91,4 @@ module.exports = xtend({
         src: 'test/**/*spec.js',
         config: 'test/test-main.js',
     }
-}, customConfig);
+};

@@ -12,5 +12,8 @@ module.exports = {
     },
     dev: {
         files: config.cssOutput.dev
+    },
+    prod: {
+        files: config.cssOutput.prod
     }
 };

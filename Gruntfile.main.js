@@ -3,7 +3,7 @@
  */
 'use strict';
 
-var xtend = require('xtend');
+var deepExtend = require('deep-extend');
 
 /**
  * Load configuration files for Grunt (Tasks)
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
     // Make Grunt accessible everwhere
     process.grunt = grunt;
 
-    var config = xtend({
+    var config = deepExtend({
         pkg: require('./package')
     }, loadTaskConfig('components/build-config/tasks'));
 
@@ -59,9 +59,19 @@ module.exports = function (grunt) {
         // 'jscs',
         // 'scsslint',
         // 'autoprefixer'
-        'clean:dev',
-        'copy:dev',
         'server'
+    ]);
+
+    // A task for generating production code
+    grunt.registerTask('build', [
+        'clean',
+        // 'jshint',
+        // 'jscs',
+        // 'scsslint',
+        // 'autoprefixer'
+        'requirejs:compile',
+        'cssmin',
+        'copy'
     ]);
 
     // Testing tasks

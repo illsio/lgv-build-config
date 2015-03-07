@@ -9,15 +9,14 @@ var config = require('../config.default');
 module.exports = {
     compile: {
         options: {
-            baseUrl: config.js.baseUrl,
-            removeCombined: true,
             findNestedDependencies: true,
+            mainConfigFile: 'js/main.js',
+            name: 'main',
+            optimize: 'none',
+            out: config.js.dest + 'main.js',
+            preserveLicenseComments: false,
+            removeCombined: true,
             useStrict: false,
-            dir: 'temp',
-            modules: [{
-              name: 'main'
-            }],
-            preserveLicenseComments: false
         }
     }
 };
