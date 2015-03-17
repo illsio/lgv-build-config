@@ -44,14 +44,16 @@ module.exports = function (grunt) {
 
     // Load all npm tasks through jit-grunt (fetches all tasks from node_modules
     // folder and custom extend object here)
-    require('jit-grunt')(grunt);
+    require('jit-grunt')(grunt, {
+        configureProxies: 'grunt-connect-proxy'
+    });
 
     /**
      * Development
      */
 
     // Application server for local development
-    grunt.registerTask('server', ['connect:server', 'watch']);
+    grunt.registerTask('server', ['configureProxies:server', 'connect:server', 'watch']);
 
     // A task for development
     grunt.registerTask('dev', [
