@@ -47,18 +47,18 @@ module.exports = {
                     changeOrigin: false,
                     xforward: false,
                     rewrite: {
-                        //'^/geofos' : ''
+                        //'^/geofos' : '' //not needed here for some reason @TODO check again
                     }
                 },
                 {
-                    context: '/lgvfds02',
-                    host: 'lgvfds02.fhhnet.stadt.hamburg.de',
+                    context: '/lgvfds01',
+                    host: 'lgvfds01.fhhnet.stadt.hamburg.de',
                     port: 80,
                     https: false,
                     changeOrigin: false,
                     xforward: false,
                     rewrite: {
-                        '^/lgvfds02' : ''
+                        '^/lgvfds01' : ''
                     }
                 },
                 {
