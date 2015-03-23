@@ -71,6 +71,82 @@ module.exports = {
                     rewrite: {
                         '^/wsca0620' : ''
                     }
+                },
+				{
+                    context: '/bsu-ims',
+                    host: 'bsu-ims.fhhnet.stadt.hamburg.de',
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false,
+                    rewrite: {
+                        '^/bsu-ims' : ''
+                    }
+                },
+				{
+                    context: '/bsu-uio',
+                    host: 'bsu-uio.fhhnet.stadt.hamburg.de',
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false,
+                    rewrite: {
+                        '^/bsu-uio' : ''
+                    }
+                },
+				{
+                    context: '/lgvfds02',
+                    host: 'lgvfds02.fhhnet.stadt.hamburg.de',
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false,
+                    rewrite: {
+                        '^/lgvfds02' : ''
+                    }
+                },
+				{
+                    context: '/mapfish',
+                    host: 'wscd0096',
+                    port: 8680,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false,
+                    rewrite: {
+                        '^/mapfish' : ''
+                    }
+                },
+				{
+                    context: '/wms_hvv',
+                    host: 'geofos.fhhnet.stadt.hamburg.de',
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false
+                },
+				{
+                    context: '/viom_v05',
+                    host: 'wscd0096.fhhnet.stadt.hamburg.de',
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false
+                },
+				{
+                    context: '/bkg_geosearch',
+                    host: 'wscd0096.fhhnet.stadt.hamburg.de',
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false
+                },
+				{
+                    context: '/bkg_suggest',
+                    host: 'wscd0096.fhhnet.stadt.hamburg.de',
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false
                 }
             ]
     }
