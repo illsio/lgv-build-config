@@ -12,7 +12,7 @@ module.exports = {
             findNestedDependencies: true,
             mainConfigFile: 'js/main.js',
             name: 'main',
-            optimize: 'none',
+            optimize: 'uglify2',
             out: config.js.dest + 'main.js',
             preserveLicenseComments: false,
             removeCombined: true,
