@@ -86,6 +86,11 @@ module.exports = {
         dest: 'dist/<%= pkg.version %>/fonts'
     },
 
+    // Config
+    config: {
+        src: 'config/'
+    },
+
     // Tests
     tests: {
         src: 'test/**/*spec.js',

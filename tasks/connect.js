@@ -40,6 +40,28 @@ module.exports = {
         },
         proxies: [
                 {
+                    context: '/maps.duesseldorf',
+                    host: 'maps.duesseldorf.de',
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false,
+                    rewrite: {
+                        '^/maps.duesseldorf' : '' //not needed here for some reason @TODO check again
+                    }
+                },
+                {
+                    context: '/geodienste-hamburg',
+                    host: 'geodienste-hamburg.de',
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false,
+                    rewrite: {
+                        '^/geodienste-hamburg' : ''
+                    }
+                },
+                {
                     context: '/geofos',
                     host: 'geofos.fhhnet.stadt.hamburg.de',
                     port: 80,

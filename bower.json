@@ -1,10 +1,10 @@
 {
   "name": "build-config",
-  "version": "0.1.0",
+  "version": "1.0.7",
   "authors": [
-    "Andreas Klein <mail@andreasklein.org>"
+    "LGV G 12"
   ],
-  "description": "Project build configuration for LGV Application",
+  "description": "Project build configuration for LGV Master",
   "main": "main.js",
   "license": "",
   "private": true,
