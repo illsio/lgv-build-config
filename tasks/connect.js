@@ -14,7 +14,7 @@ module.exports = {
         options: {
             port: 9001,
             open: {
-                target: 'http://localhost:9001/test/visual'
+                target: 'http://localhost:9001/portale'
             },
             keepalive: true,
             livereload: true,
