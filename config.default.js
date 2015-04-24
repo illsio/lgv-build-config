@@ -86,9 +86,10 @@ module.exports = {
         dest: 'dist/<%= pkg.version %>/fonts'
     },
 
-    // Config
-    config: {
-        src: 'config/'
+    // shared Config-files for master
+    lgvconfig: {
+        src: 'components/lgv-config',
+        dest: 'lgv-config'
     },
 
     // Tests

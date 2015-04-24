@@ -7,7 +7,6 @@ var config = require('../config.default');
 
 var grunt = process.grunt;
 var path = grunt.option('path') || 'portale/master';
-console.log(path);
 
 module.exports = [
 
@@ -32,11 +31,13 @@ module.exports = [
         dest: config.destDir.prod
     },
 
-    // global config files
+    // shared Config-files for master
     {
         expand: true,
-        src: [config.config.src + '**'],
-        dest: config.destDir.prod
+        flatten: true,
+        filter: 'isFile',
+        src: [config.lgvconfig.src + '/**'],
+        dest: config.lgvconfig.dest
     },
 
     //config.js from specified path
@@ -44,7 +45,16 @@ module.exports = [
         expand: true,
         src: [path + '/config.js'],
         flatten: true,
-        dest: config.destDir.prod
+        dest: config.destDir.prod,
+        options: {
+            //replace 'layerConf: *' with 'layerConf: services.json'
+            process: function(content, srcpath) {
+                content = content.replace(/(?:layerConf)(?:.*)/g, "layerConf: '/lgv-config/services-fhhnet.json',");
+                content = content.replace(/(?:styleConf)(?:.*)/g, "styleConf: '/lgv-config/style.json',");
+                content = content.replace(/(?:categoryConf)(?:.*)/g, "categoryConf: '/lgv-config/category.json',");
+                return content;
+            }
+        }
     },
 
     //index.html from specified path
@@ -55,10 +65,10 @@ module.exports = [
         dest: config.destDir.prod,
         options: {
             //replace '../..' with ''
-            process: function (content, srcpath) {
-                return content.replace(/(?:\.\.\/\.\.\/)/g,"");
+            process: function(content, srcpath) {
+                return content.replace(/(?:\.\.\/\.\.\/)/g, "");
 
-      },
-    }
+            },
+        }
     }
 ];
