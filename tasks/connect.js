@@ -169,6 +169,14 @@ module.exports = {
                     https: false,
                     changeOrigin: false,
                     xforward: false
+                },
+				{
+                    context: '/cgi-bin',
+                    host: 'wscd0096.fhhnet.stadt.hamburg.de',
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false
                 }
             ]
     }
