@@ -28,9 +28,9 @@ module.exports = [
     // woffs
     {
        expand: true,
-        cwd: 'css/woffs',
+        cwd: config.woffs.src,
         src: ['**'],
-        dest: 'dist/<%= pkg.version %>/css/woffs'
+        dest:
     },
 
     // components:requirejs

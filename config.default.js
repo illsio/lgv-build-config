@@ -48,12 +48,18 @@ module.exports = {
         dest: 'dist/<%= pkg.version %>/js/'
     },
 
-    // JavaScript files
+    // CSS files
     css: {
         files: [
             'css/style.css'
         ],
         dest: 'dist/<%= pkg.version %>/'
+    },
+
+    // woff files
+    woffs: {
+        src: 'css/woffs',
+        dest: 'dist/<%= pkg.version %>/css/woffs'
     },
 
     cssOutput: {
