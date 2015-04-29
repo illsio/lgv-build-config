@@ -25,6 +25,14 @@ module.exports = [
         dest: config.fonts.dest
     },
 
+    // woffs
+    {
+       expand: true,
+        cwd: 'css/woffs',
+        src: ['**'],
+        dest: 'dist/<%= pkg.version %>/css/woffs'
+    },
+
     // components:requirejs
     {
         src: [config.requirejs],
