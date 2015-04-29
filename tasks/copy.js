@@ -30,7 +30,7 @@ module.exports = [
        expand: true,
         cwd: config.woffs.src,
         src: ['**'],
-        dest:
+        dest: config.woffs.dest
     },
 
     // components:requirejs
