@@ -9,10 +9,6 @@
   "license": "",
   "private": true,
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "components",
-    "test",
-    "tests"
+    "**/.*"
   ]
 }
