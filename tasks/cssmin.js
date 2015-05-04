@@ -6,7 +6,9 @@
 var config = require('../config.default');
 
 module.exports = [{
-    options: {},
+    options: {
+        advanced: false
+    },
     files: [{
         expand: true,
         src: config.css.files,
