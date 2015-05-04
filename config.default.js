@@ -23,10 +23,10 @@ module.exports = {
     jsHintFiles: [
         'Gruntfile.js',
         '*.js',
-        'tasks/**/*.js',
+        'components/build-config/tasks/**/*.js',
         'js/**/*.js',
-        'test/*.js',
-        'test/specs/**/*.js'
+        //'test/*.js',
+        //'test/specs/**/*.js'
     ],
 
     // Path to JSCS configuration file
