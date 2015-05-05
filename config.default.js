@@ -24,7 +24,8 @@ module.exports = {
         'Gruntfile.js',
         '*.js',
         'components/build-config/tasks/**/*.js',
-        'js/**/*.js'
+        'js/**/*.js',
+        'portale/**/config.js'
     ],
 
     // Path to JSCS configuration file

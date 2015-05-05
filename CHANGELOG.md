@@ -7,3 +7,6 @@
 - Refactor Gruntfile.main.js und config.default.js
 - Delete nicht gebrauchte tasks (karma, autoprefixer, ...)
 - Add README.md
+
+#### v1.0.1, 2015-05-05
+- Add Konfigurationsdateien zum "watch-task"
