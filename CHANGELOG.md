@@ -10,3 +10,4 @@
 
 #### v1.0.1, 2015-05-05
 - Add Konfigurationsdateien zum "watch-task"
+- Update "build-task"-Pfad --> dist/version/name
