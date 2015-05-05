@@ -36,7 +36,7 @@ module.exports = function (grunt) {
     process.grunt = grunt;
 
     var config = deepExtend({
-        pkg: require('./package')
+        pkg: require('../../package')
     }, loadTaskConfig('components/build-config/tasks'));
 
     // Load project configuration
@@ -59,8 +59,6 @@ module.exports = function (grunt) {
     grunt.registerTask('dev', [
         // 'jshint',
         // 'jscs',
-        // 'scsslint',
-        // 'autoprefixer'
         'server'
     ]);
 
@@ -69,16 +67,10 @@ module.exports = function (grunt) {
         'clean',
         // 'jshint',
         // 'jscs',
-        // 'scsslint',
-        // 'autoprefixer'
         'requirejs:compile',
         'cssmin',
         'copy'
     ]);
-
-    // Testing tasks
-    grunt.registerTask('test:unit', ['karma']);
-    grunt.registerTask('test:visual', ['connect:test', 'phantomcss']);
 
     // Default Task
     grunt.registerTask('default', ['dev']);

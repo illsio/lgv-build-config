@@ -5,7 +5,7 @@
     "LGV G 12"
   ],
   "description": "Project build configuration for LGV Master",
-  "main": "main.js",
+  "main": "Gruntfile.main.js",
   "license": "",
   "private": true,
   "ignore": [

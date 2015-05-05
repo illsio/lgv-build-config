@@ -24,21 +24,11 @@ module.exports = {
         'Gruntfile.js',
         '*.js',
         'components/build-config/tasks/**/*.js',
-        'js/**/*.js',
-        //'test/*.js',
-        //'test/specs/**/*.js'
+        'js/**/*.js'
     ],
 
     // Path to JSCS configuration file
     jscsConfig: '.jscsrc',
-
-    // HTML Files for visual tests
-    html: {
-        files: [
-            'templates/*.html',
-            'test/**/*.html'
-        ],
-    },
 
     // JavaScript files
     js: {
@@ -96,11 +86,5 @@ module.exports = {
     lgvconfig: {
         src: 'components/lgv-config',
         dest: 'lgv-config'
-    },
-
-    // Tests
-    tests: {
-        src: 'test/**/*spec.js',
-        config: 'test/test-main.js',
     }
 };
