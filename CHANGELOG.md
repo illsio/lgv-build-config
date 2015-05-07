@@ -11,3 +11,6 @@
 #### v1.0.1, 2015-05-05
 - Add Konfigurationsdateien zum "watch-task"
 - Update "build-task"-Pfad --> dist/version/name
+
+#### v1.0.2, 2015-05-05
+- Add css-Dateien und js-Dateien aus dem modules-Verzeichnis zum "watch-task"

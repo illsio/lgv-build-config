@@ -27,7 +27,8 @@ module.exports = {
         "*.js",
         "components/build-config/tasks/**/*.js",
         "js/**/*.js",
-        "portale/**/config.js"
+        "portale/**/config.js",
+        "mdoules/**/*.js"
     ],
 
     // Path to JSCS configuration file
@@ -71,7 +72,7 @@ module.exports = {
         }],
 
         files: "**/*.css",
-        watchFiles: ["css/*.css"]
+        watchFiles: ["css/*.css", "modules/**/*.css"]
     },
 
     // Images
