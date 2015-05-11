@@ -28,7 +28,7 @@ module.exports = {
         "components/build-config/tasks/**/*.js",
         "js/**/*.js",
         "portale/**/config.js",
-        "mdoules/**/*.js"
+        "modules/**/*.js"
     ],
 
     // Path to JSCS configuration file
