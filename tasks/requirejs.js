@@ -24,7 +24,7 @@ module.exports = {
                 underscore: "../components/underscore/underscore",
                 backbone: "../components/backbone/backbone",
                 text: "../components/requirejs-text/text",
-                bootstrap: "../components/bootstrap/dist/js/bootstrap",
+                bootstrap: "../components/bootstrap/js",
                 proj4: "../components/proj4/dist/proj4",
                 eventbus: "EventBus",
                 views: "views",
