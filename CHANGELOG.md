@@ -18,4 +18,4 @@
 #### v1.0.3, 2015-05-19
 - Update "build-task" bootstrap und jqueryui werden nicht mehr komplett sondern modular geladen
 - Add .jshintrc
-- Add .jscscss-Dateien
+- Add .jscsrc
