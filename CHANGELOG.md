@@ -14,3 +14,8 @@
 
 #### v1.0.2, 2015-05-05
 - Add css-Dateien und js-Dateien aus dem modules-Verzeichnis zum "watch-task"
+
+#### v1.0.3, 2015-05-19
+- Update "build-task" bootstrap und jqueryui werden nicht mehr komplett sondern modular geladen
+- Add .jshintrc
+- Add .jscscss-Dateien
