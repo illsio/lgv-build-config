@@ -65,6 +65,7 @@ module.exports = function (grunt) {
     // A task for generating production code
     grunt.registerTask('build', [
         'clean',
+        'gitinfo',
         // 'jshint',
         // 'jscs',
         'requirejs:compile',

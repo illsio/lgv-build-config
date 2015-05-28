@@ -19,3 +19,6 @@
 - Update "build-task" bootstrap und jqueryui werden nicht mehr komplett sondern modular geladen
 - Add .jshintrc
 - Add .jscsrc
+
+### v1.0.4, 2015-05-28
+- Add, banner in gebauter main.js inkl. git-revision
