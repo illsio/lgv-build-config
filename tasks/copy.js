@@ -55,11 +55,9 @@ module.exports = [
         flatten: true,
         dest: config.destDir.prod,
         options: {
-            //replace 'layerConf: *' with 'layerConf: services.json'
+            // ersetzt in config.js: "../components/lgv-config" mit "/lgv-config"
             process: function(content, srcpath) {
-                content = content.replace(/(?:layerConf)(?:.*)/g, "layerConf: '/lgv-config/services-fhhnet.json',");
-                content = content.replace(/(?:styleConf)(?:.*)/g, "styleConf: '/lgv-config/style.json',");
-                content = content.replace(/(?:categoryConf)(?:.*)/g, "categoryConf: '/lgv-config/category.json',");
+                content = content.replace(/(?:\.\.\/components\/lgv\-config)/g, "/lgv-config");
                 return content;
             }
         }
@@ -72,7 +70,7 @@ module.exports = [
         flatten: true,
         dest: config.destDir.prod,
         options: {
-            //replace '../..' with ''
+            //ersetzt in index.html: "../.." mit ""
             process: function(content, srcpath) {
                 return content.replace(/(?:\.\.\/\.\.\/)/g, "");
 
