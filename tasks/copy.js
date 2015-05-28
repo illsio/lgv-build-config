@@ -42,10 +42,9 @@ module.exports = [
     // shared Config-files for master
     {
         expand: true,
-        flatten: true,
-        filter: 'isFile',
-        src: [config.lgvconfig.src + '/**'],
-        dest: config.lgvconfig.dest
+        cwd: config.lgvconfig.src + '/',
+        src: ['**'],
+        dest: config.lgvconfig.dest + '/'
     },
 
     //config.js from specified path
