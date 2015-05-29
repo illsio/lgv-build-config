@@ -9,10 +9,9 @@ var name = grunt.option("name") || "master";
 
 module.exports = {
     pkg: pkg,
-
     // A banner for distributed files (name, version, license, date)
     banner: "/*! " + pkg.name + " - v" + pkg.version + " - " +
-        "<%= grunt.template.today('yyyy-mm-dd') %> */",
+        "<%= grunt.template.today('yyyy-mm-dd') %>, git rev: <%= gitinfo.local.branch.current.shortSHA %> on <%= gitinfo.local.branch.current.name %>*/",
 
     destDir: {
         prod: "dist/<%= pkg.version %>/" + name + "/",

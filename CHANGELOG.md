@@ -20,5 +20,8 @@
 - Add .jshintrc
 - Add .jscsrc
 
-#### v1.0.4, 2015-05-29
+### v1.0.4, 2015-05-28
+- Add, banner in gebauter main.js inkl. git-revision
+
+#### v1.0.5, 2015-05-29
 - Update "watch-task" - Livereload führt nicht mehr den "jshint-task" aus
