@@ -19,3 +19,6 @@
 - Update "build-task" bootstrap und jqueryui werden nicht mehr komplett sondern modular geladen
 - Add .jshintrc
 - Add .jscsrc
+
+#### v1.0.4, 2015-05-29
+- Update "watch-task" - Livereload führt nicht mehr den "jshint-task" aus

@@ -16,11 +16,8 @@ module.exports = {
 
     js: {
         files: config.jsHintFiles,
-        tasks: ['jshint'],
-        //tasks: '',
         options: {
-            livereload: true,
-            atBegin: true
+            livereload: true
         }
     }
 };
