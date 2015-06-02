@@ -25,3 +25,6 @@
 
 #### v1.0.5, 2015-05-29
 - Update "watch-task" - Livereload führt nicht mehr den "jshint-task" aus
+
+### v1.0.6, 2015-06-02
+- Update "watch-task" - Html-Dateien in den Task mit aufgenommen

@@ -19,5 +19,12 @@ module.exports = {
         options: {
             livereload: true
         }
+    },
+
+    html: {
+        files: config.htmlFiles,
+        options: {
+            livereload: true
+        }
     }
 };

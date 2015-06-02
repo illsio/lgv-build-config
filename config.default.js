@@ -30,6 +30,12 @@ module.exports = {
         "modules/**/*.js"
     ],
 
+    htmlFiles: [
+        "modules/**/*.html",
+        "templates/*.html",
+        "portale/**/index.html"
+    ],
+
     // Path to JSCS configuration file
     jscsConfig: ".jscsrc",
 
