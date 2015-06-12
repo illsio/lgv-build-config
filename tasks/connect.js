@@ -40,14 +40,6 @@ module.exports = {
         },
         proxies: [
                 {
-                    context: '/lgvwps',
-                    host: 'geofos.fhhnet.stadt.hamburg.de',
-                    port: 80,
-                    https: false,
-                    changeOrigin: false,
-                    xforward: false
-                },
-                {
                     context: '/maps.duesseldorf',
                     host: 'maps.duesseldorf.de',
                     port: 80,
