@@ -73,6 +73,17 @@ module.exports = {
                     }
                 },
                 {
+                    context: '/wscd0096',
+                    host: 'wscd0096.fhhnet.stadt.hamburg.de',
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false,
+                    rewrite: {
+                        '^/wscd0096' : '' //not needed here for some reason @TODO check again
+                    }
+                },
+                {
                     context: '/lgvfds01',
                     host: 'lgvfds01.fhhnet.stadt.hamburg.de',
                     port: 80,
