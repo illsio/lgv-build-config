@@ -28,3 +28,6 @@
 
 ### v1.0.6, 2015-06-02
 - Update "watch-task" - Html-Dateien in den Task mit aufgenommen
+
+### v1.0.7, 2015-07-15
+- Update "require-task" - Pfade für GeoAPI und Backbone.Radio hinzugefügt
