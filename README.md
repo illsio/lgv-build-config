@@ -1,5 +1,5 @@
 # LGV Build Configuration for Grunt
-
+#
 #### Links zu den eingesetzten Tasks
 - [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean)
 - [grunt-contrib-connect](https://github.com/gruntjs/grunt-contrib-connect)
