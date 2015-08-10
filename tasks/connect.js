@@ -103,7 +103,7 @@ module.exports = {
                 {
                     context: "/wsca0620",
                     host: "wsca0620.fhhnet.stadt.hamburg.de",
-                    port: 80,
+                    port: 8399,
                     https: false,
                     changeOrigin: false,
                     xforward: false,
@@ -125,7 +125,7 @@ module.exports = {
                 {
                     context: "/bsu-uio",
                     host: "bsu-uio.fhhnet.stadt.hamburg.de",
-                    port: 80,
+                    port: 8083,
                     https: false,
                     changeOrigin: false,
                     xforward: false,
