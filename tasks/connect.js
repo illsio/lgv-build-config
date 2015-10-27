@@ -73,6 +73,17 @@ module.exports = {
                     }
                 },
                 {
+                    context: "/hmdk",
+                    host: "hmdk.fhhnet.stadt.hamburg.de",
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false,
+                    rewrite: {
+                        "^/hmdk" : "" //not needed here for some reason @TODO check again
+                    }
+                },
+                {
                     context: '/wscd0096',
                     host: 'wscd0096.fhhnet.stadt.hamburg.de',
                     port: 80,
