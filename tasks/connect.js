@@ -1,7 +1,7 @@
 /**
  * Server config
  */
-'use strict';
+"use strict";
 
 module.exports = {
     test: {
@@ -14,9 +14,9 @@ module.exports = {
         options: {
             port: 9001,
             open: {
-                target: 'http://localhost:9001/portale'
+                target: "http://localhost:9001/portale"
             },
-            //keepalive: true,
+            // keepalive: true,
             livereload: true,
             middleware: function (connect, options) {
                         if (!Array.isArray(options.base)) {
@@ -24,52 +24,58 @@ module.exports = {
                         }
 
                         // Setup the proxy
-                        var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest];
+                        var middlewares = [require("grunt-connect-proxy/lib/utils").proxyRequest];
 
                         // Serve static files.
-                        options.base.forEach(function(base) {
+                        options.base.forEach(function (base) {
                             middlewares.push(connect.static(base));
                         });
 
                         // Make directory browse-able.
                         var directory = options.directory || options.base[options.base.length - 1];
+
                         middlewares.push(connect.directory(directory));
 
                         return middlewares;
                     }
         },
         proxies: [
+                  {
+                    context: "/gpkswm",
+                    host: "wscd0096",
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false
+                },
                 {
-                    context: '/maps.duesseldorf',
-                    host: 'maps.duesseldorf.de',
+                    context: "/maps.duesseldorf",
+                    host: "maps.duesseldorf.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
                     xforward: false,
                     rewrite: {
-                        '^/maps.duesseldorf' : '' //not needed here for some reason @TODO check again
+                        "^/maps.duesseldorf": ""
                     }
                 },
                 {
-                    context: '/geodienste-hamburg',
-                    host: 'geodienste-hamburg.de',
+                    context: "/geodienste-hamburg",
+                    host: "wscd0096",
                     port: 80,
                     https: false,
                     changeOrigin: false,
-                    xforward: false,
-                    rewrite: {
-                        '^/geodienste-hamburg' : ''
-                    }
+                    xforward: false
                 },
                 {
-                    context: '/geofos',
-                    host: 'geofos.fhhnet.stadt.hamburg.de',
+                    context: "/geofos",
+                    host: "geofos.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
                     xforward: false,
                     rewrite: {
-                        //'^/geofos' : '' //not needed here for some reason @TODO check again
+                        // "^/geofos" : "" //not needed here for some reason @TODO check again
                     }
                 },
                 {
@@ -84,117 +90,117 @@ module.exports = {
                     }
                 },
                 {
-                    context: '/wscd0096',
-                    host: 'wscd0096.fhhnet.stadt.hamburg.de',
+                    context: "/wscd0096",
+                    host: "wscd0096.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
                     xforward: false,
                     rewrite: {
-                        '^/wscd0096' : '' //not needed here for some reason @TODO check again
+                        "^/wscd0096": "" // not needed here for some reason @TODO check again
                     }
                 },
                 {
-                    context: '/lgvfds01',
-                    host: 'lgvfds01.fhhnet.stadt.hamburg.de',
+                    context: "/lgvfds01",
+                    host: "lgvfds01.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
                     xforward: false,
                     rewrite: {
-                        '^/lgvfds01' : ''
+                        "^/lgvfds01": ""
                     }
                 },
                 {
-                    context: '/wsca0620',
-                    host: 'wsca0620.fhhnet.stadt.hamburg.de',
+                    context: "/wsca0620",
+                    host: "wsca0620.fhhnet.stadt.hamburg.de",
+                    port: 8399,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false,
+                    rewrite: {
+                        "^/wsca0620": ""
+                    }
+                },
+                {
+                    context: "/bsu-ims",
+                    host: "bsu-ims.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
                     xforward: false,
                     rewrite: {
-                        '^/wsca0620' : ''
+                        "^/bsu-ims": ""
                     }
                 },
-				{
-                    context: '/bsu-ims',
-                    host: 'bsu-ims.fhhnet.stadt.hamburg.de',
+                {
+                    context: "/bsu-uio",
+                    host: "bsu-uio.fhhnet.stadt.hamburg.de",
+                    port: 8083,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false,
+                    rewrite: {
+                        "^/bsu-uio": ""
+                    }
+                },
+                {
+                    context: "/lgvfds02",
+                    host: "lgvfds02.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
                     xforward: false,
                     rewrite: {
-                        '^/bsu-ims' : ''
+                        "^/lgvfds02": ""
                     }
                 },
-				{
-                    context: '/bsu-uio',
-                    host: 'bsu-uio.fhhnet.stadt.hamburg.de',
-                    port: 80,
-                    https: false,
-                    changeOrigin: false,
-                    xforward: false,
-                    rewrite: {
-                        '^/bsu-uio' : ''
-                    }
-                },
-				{
-                    context: '/lgvfds02',
-                    host: 'lgvfds02.fhhnet.stadt.hamburg.de',
-                    port: 80,
-                    https: false,
-                    changeOrigin: false,
-                    xforward: false,
-                    rewrite: {
-                        '^/lgvfds02' : ''
-                    }
-                },
-				{
-                    context: '/mapfish',
-                    host: 'wscd0096',
+                {
+                    context: "/mapfish",
+                    host: "wscd0096",
                     port: 8680,
                     https: false,
                     changeOrigin: false,
                     xforward: false,
                     rewrite: {
-                        '^/mapfish' : ''
+                        "^/mapfish": ""
                     }
                 },
-				{
-                    context: '/wms_hvv',
-                    host: 'geofos.fhhnet.stadt.hamburg.de',
+                {
+                    context: "/wms_hvv",
+                    host: "geofos.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
                     xforward: false
                 },
-				{
-                    context: '/viom_v05',
-                    host: 'wscd0096.fhhnet.stadt.hamburg.de',
+                {
+                    context: "/viom_v05",
+                    host: "wscd0096.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
                     xforward: false
                 },
-				{
-                    context: '/bkg_geosearch',
-                    host: 'wscd0096.fhhnet.stadt.hamburg.de',
+                {
+                    context: "/bkg_geosearch",
+                    host: "wscd0096.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
                     xforward: false
                 },
-				{
-                    context: '/bkg_suggest',
-                    host: 'wscd0096.fhhnet.stadt.hamburg.de',
+                {
+                    context: "/bkg_suggest",
+                    host: "wscd0096.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
                     xforward: false
                 },
-				{
-                    context: '/cgi-bin',
-                    host: 'wscd0096.fhhnet.stadt.hamburg.de',
+                {
+                    context: "/cgi-bin",
+                    host: "wscd0096.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
