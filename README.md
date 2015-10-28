@@ -10,7 +10,7 @@
 - [grunt-contrib-requirejs](https://github.com/gruntjs/grunt-contrib-requirejs)
 - [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)
 - [grunt-connect-proxy](https://github.com/drewzboto/grunt-connect-proxy)
-
+- [grunt-jsdoc](https://github.com/krampstudio/grunt-jsdoc)
 
 #### Vorschlag für eine Versionierung
 ```
