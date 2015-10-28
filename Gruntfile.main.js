@@ -1,9 +1,9 @@
 /**
  * General Grunt setup: A sample
  */
-'use strict';
+"use strict";
 
-var deepExtend = require('deep-extend');
+var deepExtend = require("deep-extend");
 
 /**
  * Load configuration files for Grunt (Tasks)
@@ -11,13 +11,13 @@ var deepExtend = require('deep-extend');
  * @return {object}         All options
  */
 var loadTaskConfig = function (path) {
-    var glob = require('glob');
+    var glob = require("glob");
     var object = {};
     var key;
 
-    glob.sync('*', { cwd: path }).forEach(function (option) {
-        key = option.replace(/\.js$/, '');
-        object[key] = require('../../' + path + '/' + option);
+    glob.sync("*", { cwd: path }).forEach(function (option) {
+        key = option.replace(/\.js$/, "");
+        object[key] = require("../../" + path + "/" + option);
     });
 
     return object;
@@ -30,22 +30,22 @@ var loadTaskConfig = function (path) {
 module.exports = function (grunt) {
 
     // Measure time of grunt tasks
-    require('time-grunt')(grunt);
+    require("time-grunt")(grunt);
 
     // Make Grunt accessible everwhere
     process.grunt = grunt;
 
     var config = deepExtend({
-        pkg: require('../../package')
-    }, loadTaskConfig('components/build-config/tasks'));
+        pkg: require("../../package")
+    }, loadTaskConfig("components/build-config/tasks"));
 
     // Load project configuration
     grunt.initConfig(config);
 
     // Load all npm tasks through jit-grunt (fetches all tasks from node_modules
     // folder and custom extend object here)
-    require('jit-grunt')(grunt, {
-        configureProxies: 'grunt-connect-proxy'
+    require("jit-grunt")(grunt, {
+        configureProxies: "grunt-connect-proxy"
     });
 
     /**
@@ -53,26 +53,29 @@ module.exports = function (grunt) {
      */
 
     // Application server for local development
-    grunt.registerTask('server', ['configureProxies:server', 'connect:server', 'watch']);
+    grunt.registerTask("server", ["configureProxies:server", "connect:server", "watch"]);
 
     // A task for development
-    grunt.registerTask('dev', [
-        // 'jshint',
-        // 'jscs',
-        'server'
+    grunt.registerTask("dev", [
+        // "jshint",
+        // "jscs",
+        "server"
     ]);
 
     // A task for generating production code
-    grunt.registerTask('build', [
-        'clean',
-        'gitinfo',
-        // 'jshint',
-        // 'jscs',
-        'requirejs:compile',
-        'cssmin',
-        'copy'
+    grunt.registerTask("build", [
+        "clean",
+        "gitinfo",
+        // "jshint",
+        // "jscs",
+        "requirejs:compile",
+        "cssmin",
+        "copy"
     ]);
 
+    // jsdoc Task
+    grunt.registerTask("doc", ["jsdoc"]);
+
     // Default Task
-    grunt.registerTask('default', ['dev']);
+    grunt.registerTask("default", ["dev"]);
 };
