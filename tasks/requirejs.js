@@ -33,6 +33,7 @@ module.exports = {
                 bootstrap: "../components/bootstrap/js",
                 proj4: "../components/proj4/dist/proj4",
                 videojs: "../components/video.js/dist/video-js/video",
+                moment: "../components/moment/min/moment.min",
                 eventbus: "EventBus",
                 geoapi: "GeoAPI",
                 views: "views",
