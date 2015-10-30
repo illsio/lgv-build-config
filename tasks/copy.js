@@ -7,73 +7,115 @@ var config = require('../config.default');
 
 var grunt = process.grunt;
 var path = grunt.option('path') || 'portale/master';
+var env = grunt.option("env");
 
-module.exports = [
+module.exports = {
+    dist: {
+        files: [
+            // images
+            {
+                expand: true,
+                src: [config.img.src + '**'],
+                dest: config.destDir.prod
+            },
 
-    // images
-    {
-        expand: true,
-        src: [config.img.src + '**'],
-        dest: config.destDir.prod
+            // fonts
+            {
+                expand: true,
+                cwd: config.fonts.src,
+                src: ['**'],
+                dest: config.fonts.dest
+            },
+
+            // woffs
+            {
+                expand: true,
+                cwd: config.woffs.src,
+                src: ['**'],
+                dest: config.woffs.dest
+            },
+
+            // components:requirejs
+            {
+                src: [config.requirejs],
+                dest: config.destDir.prod
+            },
+
+            // shared Config-files for master
+            {
+                expand: true,
+                cwd: config.lgvconfig.src + '/',
+                src: ['**'],
+                dest: config.lgvconfig.dest + '/'
+            }
+        ]
     },
-
-    // fonts
-    {
-        expand: true,
-        cwd: config.fonts.src,
-        src: ['**'],
-        dest: config.fonts.dest
-    },
-
-    // woffs
-    {
-       expand: true,
-        cwd: config.woffs.src,
-        src: ['**'],
-        dest: config.woffs.dest
-    },
-
-    // components:requirejs
-    {
-        src: [config.requirejs],
-        dest: config.destDir.prod
-    },
-
-    // shared Config-files for master
-    {
-        expand: true,
-        cwd: config.lgvconfig.src + '/',
-        src: ['**'],
-        dest: config.lgvconfig.dest + '/'
-    },
-
-    //config.js from specified path
-    {
-        expand: true,
-        src: [path + '/config.js'],
-        flatten: true,
-        dest: config.destDir.prod,
+    distPortal: {
+        files: [
+            // index.html + config.js from specified path
+            {
+                expand: true,
+                src: [path + "/config.js", path + "/index.html"],
+                dest: config.destDir.prod,
+                flatten:true
+            }
+        ],
         options: {
-            // ersetzt in config.js: "../components/lgv-config" mit "/lgv-config"
             process: function(content, srcpath) {
-                content = content.replace(/(?:\.\.\/components\/lgv\-config)/g, "/lgv-config");
+                // config.js
+                if (srcpath.indexOf("config.js") > -1) {
+
+                    // ersetzt "../components/lgv-config" mit "/lgv-config"
+                    content = content.replace(/\.\.\/components\/lgv\-config/g, "/lgv-config");
+
+                    // ersetze -fhhnet. mit -internet.
+                    if (env && env === "internet") {
+                        content = content.replace(/-fhhnet./g, "-internet.");
+                    }
+                    return content;
+                }
+
+                // index.html: ersetzt "../.." mit ""
+                if (srcpath.indexOf("index.html") > -1) {
+                    return content.replace(/\.\.\/\.\.\//g, "");
+                }
                 return content;
             }
         }
     },
-
-    //index.html from specified path
-    {
-        expand: true,
-        src: [path + '/index.html'],
-        flatten: true,
-        dest: config.destDir.prod,
-        options: {
-            //ersetzt in index.html: "../.." mit ""
-            process: function(content, srcpath) {
-                return content.replace(/(?:\.\.\/\.\.\/)/g, "");
-
-            },
+    examples: {
+        files: [{
+            cwd: config.destDir.prod,
+            src: ['**'],
+            expand: true,
+            dest: "examples"
+        }, {
+            expand: true,
+            cwd: config.lgvconfig.src + '/',
+            src: ["*services-internet.json", "style.json", "tree-config/masterTree.json", "img/krankenhaus.png"],
+            dest: "examples/lgv-config"
+        }]},
+    examplesPortal: {
+        files: [
+        {
+            expand: true,
+            src: [path + "/config.js", path + "/index.html", "portale/masterTree/config.js", "portale/masterTree/index.html"],
+            dest: "examples/"
         }
-    }
-];
+        ],
+        options: {
+            process: function(content, srcpath) {
+                // config.js: ersetzt "../components/lgv-config" mit "lgv-config"
+                if (srcpath.indexOf("config.js") > -1) {
+                    content = content.replace(/\.\.\/components\/lgv\-config/g, "../lgv-config");
+                    // ersetze -fhhnet. mit -internet.
+                    if (env && env === "internet") {
+                        content = content.replace(/-fhhnet./g, "-internet.");
+                    }
+
+                    return content;
+                }
+                return content;
+            }
+        }
+    }};

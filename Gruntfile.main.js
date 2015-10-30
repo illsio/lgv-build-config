@@ -70,7 +70,16 @@ module.exports = function (grunt) {
         // "jscs",
         "requirejs:compile",
         "cssmin",
-        "copy"
+        "copy:dist",
+        "copy:distPortal"
+    ]);
+
+    // a task for generating examples
+    grunt.registerTask("buildExamples", [
+        "build",
+        "copy:examples",
+        "copy:examplesPortal",
+        "clean:postExamples"
     ]);
 
     // jsdoc Task

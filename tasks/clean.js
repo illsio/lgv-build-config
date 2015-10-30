@@ -5,8 +5,12 @@
 
 var config = require('../config.default');
 
-module.exports = [
-    config.destDir.prod,
-    config.destDir.temp,
-    config.lgvconfig.dest
-];
+module.exports = {
+    dist: [
+        config.destDir.prod,
+        config.destDir.temp,
+        config.lgvconfig.dest
+    ],
+    examples: ["examples"],
+    postExamples: ["examples/config.js", "examples/index.html"]
+};
