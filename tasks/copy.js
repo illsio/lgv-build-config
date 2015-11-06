@@ -6,8 +6,8 @@
 var config = require('../config.default');
 
 var grunt = process.grunt;
-var path = grunt.option('path') || 'portale/master';
-var env = grunt.option("env");
+var path = grunt.option('path') || "portale/master";
+var env = grunt.option("env") || "fhhnet";
 
 module.exports = {
     dist: {
@@ -92,15 +92,20 @@ module.exports = {
         }, {
             expand: true,
             cwd: config.lgvconfig.src + '/',
-            src: ["*services-internet.json", "style.json", "tree-config/masterTree.json", "img/krankenhaus.png"],
+            src: ["*services-"+ env +".json", "style.json", "tree-config/masterTree.json", "img/krankenhaus.png"],
             dest: "examples/lgv-config"
         }]},
     examplesPortal: {
         files: [
         {
-            expand: true,
-            src: [path + "/config.js", path + "/index.html", "portale/masterTree/config.js", "portale/masterTree/index.html"],
+            src: ["portale/simple/config.js", "portale/simple/index.html"],
             dest: "examples/"
+        },
+        {
+            src: ["portale/masterTree/config.js", "portale/masterTree/index.html"],
+            dest: "examples/portale/tree/",
+            flatten: true,
+            expand: true
         }
         ],
         options: {
