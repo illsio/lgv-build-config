@@ -64,7 +64,7 @@ module.exports = function (grunt) {
 
     // A task for generating production code
     grunt.registerTask("build", [
-        "clean",
+        "clean:dist",
         "gitinfo",
         // "jshint",
         // "jscs",
@@ -77,6 +77,7 @@ module.exports = function (grunt) {
     // a task for generating examples
     grunt.registerTask("buildExamples", [
         "build",
+        "clean:examples",
         "copy:examples",
         "copy:examplesPortal",
         "clean:postExamples"
