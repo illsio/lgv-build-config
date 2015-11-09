@@ -11,6 +11,5 @@ module.exports = {
         config.destDir.temp,
         config.lgvconfig.dest
     ],
-    examples: ["examples"],
-    postExamples: ["examples/config.js", "examples/index.html"]
+    examples: ["examples"]
 };
