@@ -74,13 +74,17 @@ module.exports = function (grunt) {
         "copy:distPortal"
     ]);
 
+    // a task for copying files for examples
+    grunt.registerTask("copyExamples", [
+        "clean:examples",
+        "copy:examples",
+        "copy:examplesPortal"
+    ]);
+
     // a task for generating examples
     grunt.registerTask("buildExamples", [
         "build",
-        "clean:examples",
-        "copy:examples",
-        "copy:examplesPortal",
-        "clean:postExamples"
+        "copyExamples"
     ]);
 
     // jsdoc Task
