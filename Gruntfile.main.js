@@ -78,7 +78,8 @@ module.exports = function (grunt) {
     grunt.registerTask("copyExamples", [
         "clean:examples",
         "copy:examples",
-        "copy:examplesPortal"
+        "copy:examplesPortal",
+        "compress:examples"
     ]);
 
     // a task for generating examples
