@@ -7,12 +7,13 @@ var config = require('../config.default');
 
 var grunt = process.grunt;
 var path = grunt.option('path') || "portale/master";
-var env = grunt.option("env") || "fhhnet";
+var env = "fhhnet";
 
 var restServices = "rest-services-fhhnet.json";
 var services = "services-fhhnet.json";
 
-if (env === "internet") {
+if (grunt.option("env") === "internet") {
+    env = "internet";
     restServices = "rest-services-internet.json";
     services = "services-internet-webatlas.json";
 };
