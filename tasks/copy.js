@@ -9,6 +9,14 @@ var grunt = process.grunt;
 var path = grunt.option('path') || "portale/master";
 var env = grunt.option("env") || "fhhnet";
 
+var restServices = "rest-services-fhhnet.json";
+var services = "services-fhhnet.json";
+
+if (env === "internet") {
+    restServices = "rest-services-internet.json";
+    services = "services-internet-webatlas.json";
+};
+
 module.exports = {
     dist: {
         files: [
@@ -93,8 +101,12 @@ module.exports = {
         }, {
             expand: true,
             cwd: config.lgvconfig.src + '/',
-            src: ["*services-" + env + ".json", "style.json", "tree-config/simpleTree.json", "img/krankenhaus.png"],
+            src: [services, restServices, "style.json", "tree-config/simpleTree.json", "img/krankenhaus.png"],
             dest: "examples/lgv-config"
+        },
+        {
+            src: "doc/**",
+            dest: "examples/"
         }]
     },
     examplesPortal: {
@@ -114,7 +126,8 @@ module.exports = {
                     content = content.replace(/\.\.\/components\/lgv\-config/g, "../lgv-config");
                     // ersetze -fhhnet. mit -internet. und einige hard-coded geofos-urls mit geodienste-urls
                     if (env && env === "internet") {
-                        content = content.replace(/-fhhnet./g, "-internet.");
+                        content = content.replace(/rest-services-fhhnet.json/g, restServices);
+                        content = content.replace(/services-fhhnet.json/g, services);
                         content = content.replace(/geofos\/fachdaten_public\/services\/wfs_hh_bebauungsplaene/g, "geodienste-hamburg/HH_WFS_Bebauungsplaene");
                         content = content.replace(/geofos\/dog_hh\/services\/wfs/g, "geodienste-hamburg/HH_WFS_DOG");
                     }
