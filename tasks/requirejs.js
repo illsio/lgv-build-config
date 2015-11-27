@@ -23,7 +23,7 @@ module.exports = {
             removeCombined: true,
             useStrict: false,
             paths: {
-                openlayers: "../_libs/openlayers/v3.5.0/ol",
+                openlayers: "../components/ol3-bower/ol",
                 jquery: "../components/jquery/dist/jquery.min",
                 jqueryui: "../components/jquery-ui/ui",
                 underscore: "../components/underscore/underscore-min",
