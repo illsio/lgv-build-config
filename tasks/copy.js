@@ -63,7 +63,7 @@ module.exports = {
             // index.html + config.js from specified path
             {
                 expand: true,
-                src: [path + "/config.js", path + "/index.html"],
+                src: [path + "/config.js", path + "/index.html", path + "/*.php", path + "/*.json"],
                 dest: config.destDir.prod,
                 flatten: true
             }

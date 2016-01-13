@@ -11,7 +11,7 @@ module.exports = {
     pkg: pkg,
     // A banner for distributed files (name, version, license, date)
     banner: "/*! " + pkg.name + " - v" + pkg.version + " - " +
-        "<%= grunt.template.today('yyyy-mm-dd') %>, git rev: <%= gitinfo.local.branch.current.shortSHA %> on <%= gitinfo.local.branch.current.name %>*/",
+        "<%= grunt.template.today('yyyy-mm-dd') %>, git rev: <%= gitinfo.local.branch.current.shortSHA %> on <%= gitinfo.local.branch.current.name %>, License: https://bitbucket.org/lgv-g12/lgv/src/dev/License.txt*/",
 
     destDir: {
         prod: "dist/<%= pkg.version %>/" + name + "/",
