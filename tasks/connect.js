@@ -250,14 +250,14 @@ module.exports = {
                    }
                 },
                 {
-                   context: "/wsca0620_fhhnet_stadt_hamburg_de",
-                   host: "wsca0620.fhhnet.stadt.hamburg.de",
+                   context: "/10_61_143_52",
+                   host: "10.61.143.52",
                    port: 8399,
                    https: false,
                    changeOrigin: false,
                    xforward: false,
                    rewrite: {
-                       "^/wsca0620_fhhnet_stadt_hamburg_de": ""
+                       "^/10_61_143_52": ""
                    }
                 },
                 {
