@@ -28,7 +28,7 @@ module.exports = {
                 jqueryui: "../components/jquery-ui/ui",
                 underscore: "../components/underscore/underscore-min",
                 backbone: "../components/backbone/backbone",
-                backboneradio: "../components/backbone.radio/build/backbone.radio.min",
+                "backbone.radio": "../components/backbone.radio/build/backbone.radio.min",
                 text: "../components/requirejs-text/text",
                 bootstrap: "../components/bootstrap/js",
                 proj4: "../components/proj4/dist/proj4",
