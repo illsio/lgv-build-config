@@ -1,28 +1,44 @@
 /**
- * Watching for changes
+ * Run tasks whenever watched files change
+ * https://github.com/gruntjs/grunt-contrib-watch
  */
-'use strict';
-
-var config = require('../config.default');
-
-// Watch is only present in components
 module.exports = {
     css: {
-        files: config.cssOutput.watchFiles,
+        files: [
+            "css/*.css",
+            "modules/**/*.css"
+        ],
         options: {
             livereload: true
         }
     },
 
+    less: {
+        files: [
+            "css/*.less",
+            "modules/**/*.less"
+        ],
+        tasks: "less"
+    },
+
     js: {
-        files: config.jsHintFiles,
+        files: [
+            "Gruntfile.js",
+            "components/build-config/tasks/**/*.js",
+            "js/*.js",
+            "portale/**/config.js",
+            "modules/**/*.js"
+        ],
         options: {
             livereload: true
         }
     },
 
     html: {
-        files: config.htmlFiles,
+        files: [
+            "modules/**/*.html",
+            "portale/**/index.html"
+        ],
         options: {
             livereload: true
         }
