@@ -57,7 +57,7 @@ module.exports = {
 
     // woff files
     woffs: {
-        src: "css/woffs",
+        src: "components/lgv-config/css/woffs",
         dest: "dist/<%= pkg.version %>/" + name + "/css/woffs"
     },
 
