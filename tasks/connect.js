@@ -313,6 +313,17 @@ module.exports = {
                    }
                 },
                 {
+                   context: "/geodienste_hamburg_de",
+                   host: "geodienste.hamburg.de",
+                   port: 80,
+                   https: false,
+                   changeOrigin: false,
+                   xforward: false,
+                   rewrite: {
+                       "^/geodienste.hamburg.de": ""
+                   }
+                },
+                {
                    context: "/wscd0096_fhhnet_stadt_hamburg_de",
                    host: "wscd0096.fhhnet.stadt.hamburg.de",
                    port: 80,
