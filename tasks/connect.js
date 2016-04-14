@@ -320,7 +320,7 @@ module.exports = {
                    changeOrigin: false,
                    xforward: false,
                    rewrite: {
-                       "^/geodienste.hamburg.de": ""
+                       "^/geodienste_hamburg_de": ""
                    }
                 },
                 {

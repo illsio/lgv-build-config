@@ -52,8 +52,11 @@ module.exports = function (grunt) {
      * Development
      */
 
-    // Application server for local development
+    // Application server for local development, livereloading enabled
     grunt.registerTask("server", ["configureProxies:server", "connect:server", "watch"]);
+
+    // Application server for local testing, livereloading disabled
+    grunt.registerTask("test", ["configureProxies:server", "connect:test"]);
 
     // A task for development
     grunt.registerTask("dev", [
