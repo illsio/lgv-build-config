@@ -66,6 +66,14 @@ module.exports = {
                    xforward: false
                 },
                 {
+                   context: "/geodienste_hamburg_de",
+                   host: "wscd0096",
+                   port: 80,
+                   https: false,
+                   changeOrigin: false,
+                   xforward: false
+                },
+                {
                    context: "/geoportal_kreis-lup_de",
                    host: "wscd0096",
                    port: 80,
