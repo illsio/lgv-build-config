@@ -91,6 +91,23 @@ module.exports = {
         dest: "dist/<%= pkg.version %>/" + name + "/fonts"
     },
 
+    // Changelog
+    changelog: {
+      lgvmaster: {
+        options: {
+          logArguments: [
+            '--pretty=format:oneline',
+            '--no-merges',
+            '--date=short'
+          ],
+          featureRegex: /^(.*)add (.*)$/gim,
+          fixRegex: /^(.*)fix (.*)$/gim,
+          dest: 'release-notes.md',
+          insertType: 'prepend'
+        }
+      }
+    },
+
     // shared Config-files for master
     lgvconfig: {
         src: "components/lgv-config",
