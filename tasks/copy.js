@@ -63,7 +63,7 @@ module.exports = {
             // index.html + config.js from specified path
             {
                 expand: true,
-                src: [path + "/config.js", path + "/index.html", path + "/*.php", path + "/*.json"],
+                src: [path + "/*.js", path + "/index.html", path + "/*.php", path + "/*.json"],
                 dest: config.destDir.prod,
                 flatten: true
             }
@@ -76,6 +76,8 @@ module.exports = {
                     // ersetzt "../components/lgv-config" mit "/lgv-config"
                     content = content.replace(/\.\.\/components\/lgv\-config/g, "/lgv-config");
 
+                    // ersetzt "../portale/**/" mit "../" --> Pfad für customModules
+                    content = content.replace(/\.\.\/portale\/.*\//g, "../");
                     // ersetze -fhhnet. mit -internet. und einige hard-coded geofos-urls mit geodienste-urls
                     if (env && env === "internet") {
                         content = content.replace(/-fhhnet./g, "-internet.");
