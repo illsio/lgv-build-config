@@ -31,6 +31,7 @@ module.exports = {
                 "backbone.radio": "../components/backbone.radio/build/backbone.radio.min",
                 text: "../components/requirejs-text/text",
                 bootstrap: "../components/bootstrap/js",
+                colorpicker: "../components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min",
                 proj4: "../components/proj4/dist/proj4",
                 videojs: "../components/video.js/dist/video-js/video",
                 moment: "../components/moment/min/moment.min",
