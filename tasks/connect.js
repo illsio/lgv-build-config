@@ -709,7 +709,7 @@ module.exports = {
                     port: 80,
                     https: false,
                     changeOrigin: false,
-                    xforward: false,
+                    xforward: false
                 },
                 {
                     context: "/bkg_geosearch",
