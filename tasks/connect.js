@@ -729,7 +729,7 @@ module.exports = {
                 },
                 {
                     context: "/cgi-bin",
-                    host: "wscd0096.fhhnet.stadt.hamburg.de",
+                    host: "wfalgqw001.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
