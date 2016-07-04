@@ -704,7 +704,7 @@ module.exports = {
                     xforward: false
                 },
                 {
-                    context: "/viom_v05",
+                    context: "/viomRouting",
                     host: "wscd0096.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
