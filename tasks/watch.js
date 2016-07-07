@@ -27,6 +27,7 @@ module.exports = {
             "components/build-config/tasks/**/*.js",
             "js/*.js",
             "portale/**/config.js",
+            "portale/**/config.json",
             "modules/**/*.js"
         ],
         options: {
