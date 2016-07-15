@@ -43,7 +43,7 @@ module.exports = {
         // -----------------MRH----------------------------
                 {
                    context: "/geodaten_metropolregion_hamburg_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -51,7 +51,7 @@ module.exports = {
                 },
                 {
                    context: "/87_106_16_168",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -59,7 +59,7 @@ module.exports = {
                 },
                 {
                    context: "/geodienste-hamburg_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -67,7 +67,7 @@ module.exports = {
                 },
                 {
                    context: "/geodienste_hamburg_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -75,7 +75,7 @@ module.exports = {
                 },
                 {
                    context: "/geoportal_kreis-lup_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -83,7 +83,7 @@ module.exports = {
                 },
                 {
                    context: "/www_geocms_com",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -91,7 +91,7 @@ module.exports = {
                 },
                 {
                    context: "/www_geoport-nwm_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -99,7 +99,7 @@ module.exports = {
                 },
                 {
                    context: "/213_252_154_69",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -107,7 +107,7 @@ module.exports = {
                 },
                 {
                    context: "/geo_lklg_net",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -115,7 +115,7 @@ module.exports = {
                 },
                 {
                    context: "/gis_herzogtum-lauenburg_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -123,7 +123,7 @@ module.exports = {
                 },
                 {
                    context: "/www2_heidekreis_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -131,7 +131,7 @@ module.exports = {
                 },
                 {
                    context: "/ags_hannit_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -139,7 +139,7 @@ module.exports = {
                 },
                 {
                    context: "/www_cuxland-gis_landkreis-cuxhaven_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -147,7 +147,7 @@ module.exports = {
                 },
                 {
                    context: "/sla_niedersachsen_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -155,7 +155,7 @@ module.exports = {
                 },
                 {
                    context: "/service_schleswig-holstein_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -163,7 +163,7 @@ module.exports = {
                 },
                 {
                    context: "/www_umweltkarten_mv-regierung_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -171,7 +171,7 @@ module.exports = {
                 },
                 {
                    context: "/maps_dwd_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -179,7 +179,7 @@ module.exports = {
                 },
                 {
                    context: "/178_63_99_250",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -187,7 +187,7 @@ module.exports = {
                 },
                 {
                    context: "/www_thru_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -195,7 +195,7 @@ module.exports = {
                 },
                 {
                    context: "/extmap_hbt_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -203,7 +203,7 @@ module.exports = {
                 },
                 {
                    context: "/www_geodok_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -211,7 +211,7 @@ module.exports = {
                 },
                 {
                    context: "/141_88_214_10",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -219,7 +219,7 @@ module.exports = {
                 },
                 {
                    context: "/www_pegelonline_wsv_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -227,7 +227,7 @@ module.exports = {
                 },
                 {
                    context: "/ows_terrestris_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -235,7 +235,7 @@ module.exports = {
                 },
                 {
                    context: "/www_wms_nrw_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -367,7 +367,7 @@ module.exports = {
         // -----------------Internet-----------------------
                 {
                    context: "/geodienste-hamburg_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -378,7 +378,7 @@ module.exports = {
                 },
                 {
                    context: "/geodaten_metropolregion_hamburg_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -389,7 +389,7 @@ module.exports = {
                 },
                 {
                    context: "/map1_hamburg_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -400,7 +400,7 @@ module.exports = {
                 },
                 {
                    context: "/hmbtg_geronimus_info",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -411,7 +411,7 @@ module.exports = {
                 },
                 {
                    context: "/extmap_hbt_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -422,7 +422,7 @@ module.exports = {
                 },
                 {
                    context: "/v08_viom-system_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -434,7 +434,7 @@ module.exports = {
         // -----------------Rest FHH-----------------------
                 {
                    context: "/hmdk_fhhnet_stadt_hamburg_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -442,7 +442,7 @@ module.exports = {
                 },
                 {
                    context: "/geofos_fhhnet_stadt_hamburg_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -450,7 +450,7 @@ module.exports = {
                 },
                 {
                    context: "/gv-srv-w00124_fhhnet_stadt_hamburg_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -459,7 +459,7 @@ module.exports = {
         // -----------------Rest Internet------------------
                 {
                    context: "/87_106_16_168",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -470,7 +470,7 @@ module.exports = {
                 },
                 {
                    context: "/gateway_hamburg_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -481,7 +481,7 @@ module.exports = {
                 },
                 {
                    context: "/metaver_de",
-                   host: "wscd0096",
+                   host: "wfalgqw001",
                    port: 80,
                    https: false,
                    changeOrigin: false,
@@ -571,7 +571,7 @@ module.exports = {
         // --------------------Alt-------------------------
                 {
                     context: "/gpkswm",
-                    host: "wscd0096",
+                    host: "wfalgqw001",
                     port: 80,
                     https: false,
                     changeOrigin: false,
@@ -590,7 +590,7 @@ module.exports = {
                 },
                 {
                     context: "/geodienste-hamburg",
-                    host: "wscd0096",
+                    host: "wfalgqw001",
                     port: 80,
                     https: false,
                     changeOrigin: false,
@@ -619,14 +619,14 @@ module.exports = {
                     }
                 },
                 {
-                    context: "/wscd0096",
-                    host: "wscd0096.fhhnet.stadt.hamburg.de",
+                    context: "/wfalgqw001",
+                    host: "wfalgqw001.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,
                     xforward: false,
                     rewrite: {
-                        "^/wscd0096": "" // not needed here for some reason @TODO check again
+                        "^/wfalgqw001": "" // not needed here for some reason @TODO check again
                     }
                 },
                 {
