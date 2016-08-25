@@ -453,6 +453,22 @@ module.exports = {
                        "^/v08_viom-system_de": ""
                    }
                 },
+                {
+                   context: "/bkg_suggest",
+                   host: "wfalgqw001",
+                   port: 80,
+                   https: false,
+                   changeOrigin: false,
+                   xforward: false
+                },
+                {
+                    context: "/bkg_geosearch",
+                    host: "wfalgqw001",
+                    port: 80,
+                    https: false,
+                    changeOrigin: false,
+                    xforward: false
+                },
         // -----------------Rest FHH-----------------------
                 {
                    context: "/hmdk_fhhnet_stadt_hamburg_de",
@@ -727,22 +743,6 @@ module.exports = {
                 },
                 {
                     context: "/viomRouting",
-                    host: "wscd0096.fhhnet.stadt.hamburg.de",
-                    port: 80,
-                    https: false,
-                    changeOrigin: false,
-                    xforward: false
-                },
-                {
-                    context: "/bkg_geosearch",
-                    host: "wscd0096.fhhnet.stadt.hamburg.de",
-                    port: 80,
-                    https: false,
-                    changeOrigin: false,
-                    xforward: false
-                },
-                {
-                    context: "/bkg_suggest",
                     host: "wscd0096.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
