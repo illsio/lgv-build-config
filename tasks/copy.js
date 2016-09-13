@@ -99,7 +99,7 @@ module.exports = {
         files: [{
             expand: true,
             cwd: config.destDir.prod,
-            src: ["**", "!index.html", "!config.js"],
+            src: ["**", "!index.html", "!config.js", "!config.json", "!verkehrsfunctions.js"],
             dest: "examples"
         }, {
             expand: true,
@@ -116,8 +116,10 @@ module.exports = {
         files: [{
             src: [
                 "portale/simple/config.js",
+                "portale/simple/config.json",
                 "portale/simple/index.html",
                 "portale/simpleTree/config.js",
+                "portale/simpleTree/config.json",
                 "portale/simpleTree/index.html"
             ],
             dest: "examples/"
