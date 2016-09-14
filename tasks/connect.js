@@ -354,14 +354,14 @@ module.exports = {
                    }
                 },
                 {
-                   context: "/wscd0096_fhhnet_stadt_hamburg_de",
-                   host: "wscd0096.fhhnet.stadt.hamburg.de",
+                   context: "/wfalgqa003_dpaorins_de",
+                   host: "wfalgqa003.dpaorins.de",
                    port: 80,
                    https: false,
                    changeOrigin: false,
                    xforward: false,
                    rewrite: {
-                       "^/wscd0096_fhhnet_stadt_hamburg_de": ""
+                       "^/wfalgqa003_dpaorins_de": ""
                    }
                 },
                 {
@@ -480,14 +480,6 @@ module.exports = {
                 },
                 {
                    context: "/geofos_fhhnet_stadt_hamburg_de",
-                   host: "wfalgqw001",
-                   port: 80,
-                   https: false,
-                   changeOrigin: false,
-                   xforward: false
-                },
-                {
-                   context: "/gv-srv-w00124_fhhnet_stadt_hamburg_de",
                    host: "wfalgqw001",
                    port: 80,
                    https: false,
@@ -720,17 +712,6 @@ module.exports = {
                     xforward: false,
                     rewrite: {
                         "^/lgvfds02": ""
-                    }
-                },
-                {
-                    context: "/mapfish",
-                    host: "wscd0096",
-                    port: 8680,
-                    https: false,
-                    changeOrigin: false,
-                    xforward: false,
-                    rewrite: {
-                        "^/mapfish": ""
                     }
                 },
                 {
