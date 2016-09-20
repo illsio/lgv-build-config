@@ -62,6 +62,14 @@ module.exports = {
                     }
         },
         proxies: [
+        //----------ELASTIC----------------
+                {
+                   context: "/gv-srv-w00130",
+                   host: "gv-srv-w00130",
+                   rewrite: {
+                    "^/gv-srv-w00130": ""
+                    }
+                },
         // -----------------MRH----------------------------
                 {
                    context: "/geodaten_metropolregion_hamburg_de",
