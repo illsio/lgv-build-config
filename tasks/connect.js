@@ -274,6 +274,17 @@ module.exports = {
 
         // -----------------FHH-Net------------------------
                 {
+                   context: "/lgvfds03_fhhnet_stadt_hamburg_de",
+                   host: "lgvfds03.fhhnet.stadt.hamburg.de",
+                   port: 80,
+                   https: false,
+                   changeOrigin: false,
+                   xforward: false,
+                   rewrite: {
+                       "^/lgvfds03_fhhnet_stadt_hamburg_de": ""
+                   }
+                },
+                {
                    context: "/lgvfds02_fhhnet_stadt_hamburg_de",
                    host: "lgvfds02.fhhnet.stadt.hamburg.de",
                    port: 80,
