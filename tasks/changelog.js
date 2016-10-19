@@ -21,7 +21,8 @@ module.exports = {
        partials: {
          features: 'NEU:\n\n{{#if features}}{{#each features}}{{> feature}}{{/each}}{{else}}{{> empty}}{{/if}}\n'
        },
-       dest: 'changelogs/<%= pkg.version %>.md'
+       dest: 'CHANGELOG.md',
+       insertType: 'prepend'
      }
    }
 };
