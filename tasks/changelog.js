@@ -9,20 +9,38 @@
 
 module.exports = {
     // Changelog
-    lgvmaster: {
+    majorupdate: {
      options: {
        logArguments: [
          '--pretty=%h %s',
-         '--merges'
+          '--merges'
        ],
        fileHeader: '# Changelog LGV Master-Portal <%= pkg.version %>',
        featureRegex: /^(.*)add (.*)$/gim,
-       fixRegex: /^(.*)fix (.*)$/gim,
+       fixRegex: /^(.*)\bfix (.*)$/gim,
        partials: {
          features: 'NEU:\n\n{{#if features}}{{#each features}}{{> feature}}{{/each}}{{else}}{{> empty}}{{/if}}\n'
        },
        dest: 'CHANGELOG.md',
        insertType: 'prepend'
      }
-   }
+   },
+    minorupdate: {
+     options: {
+       logArguments: [
+         '--pretty=%h %s',
+          '--merges'
+       ],
+       fileHeader: '# Changelog LGV Master-Portal <%= pkg.version %>',
+       featureRegex: /^(.*)add (.*)$/gim,
+       fixRegex: /^(.*)\bhotfix (.*)$/gim,
+       partials: {
+         features: 'NEU:\n\n{{#if features}}{{#each features}}{{> feature}}{{/each}}{{else}}{{> empty}}{{/if}}\n'
+       },
+       dest: 'CHANGELOG.md',
+       insertType: 'prepend'
+     }
+   },
+
 };
+
