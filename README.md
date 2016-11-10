@@ -19,4 +19,3 @@
 │ └─────── Nebenversionsnummer --> funktionelle Erweiterungen, neue Tasks
 └───────── Hauptversionsnummer --> komplette Umstrukturierung des Codes
 ```
-
