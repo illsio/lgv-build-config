@@ -5,11 +5,11 @@ var config = require('../config.default');
 module.exports = {
     examples: {
         options: {
-        archive: 'examples.zip'
+        archive: "examples-" + config.pkg.version + ".zip"
         },
         files: [{
             expand : true,
-            cwd: "examples/",
+            cwd: "examples-" + config.pkg.version + "/",
             src: "**"
         }]
     }

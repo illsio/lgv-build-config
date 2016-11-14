@@ -100,16 +100,16 @@ module.exports = {
             expand: true,
             cwd: config.destDir.prod,
             src: ["**", "!index.html", "!config.js", "!config.json", "!verkehrsfunctions.js"],
-            dest: "examples"
+            dest: "examples-" + config.pkg.version
         }, {
             expand: true,
             cwd: config.lgvconfig.src + '/',
             src: [services, restServices, "style.json", "tree-config/simpleTree.json", "img/krankenhaus.png"],
-            dest: "examples/lgv-config"
+            dest: "examples-" + config.pkg.version + "/lgv-config"
         },
         {
             src: "doc/**",
-            dest: "examples/"
+            dest: "examples-" + config.pkg.version + "/"
         }]
     },
     examplesPortal: {
@@ -122,7 +122,7 @@ module.exports = {
                 "portale/simpleTree/config.json",
                 "portale/simpleTree/index.html"
             ],
-            dest: "examples/"
+            dest: "examples-" + config.pkg.version + "/"
         }],
         options: {
             process: function(content, srcpath) {
