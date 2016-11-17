@@ -11,5 +11,6 @@ module.exports = {
         config.destDir.temp,
         config.lgvconfig.dest
     ],
-    examples: ["examples*"]
+    examples: ["examples*"],
+    woffs: ["examples*/css/woffs"]
 };
