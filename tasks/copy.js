@@ -74,7 +74,7 @@ module.exports = {
                     // ersetzt "../components/lgv-config" mit "/lgv-config"
                     content = content.replace(/\.\.\/components\/lgv\-config/g, "/lgv-config");
 
-                    // ersetzt "../portal*/*/" mit "../" --> Pfad fÃ¼r customModules
+                    // ersetzt "../portal*/*/" mit "../" --> Pfad für customModules
                     content = content.replace(/\.\.\/portal.*\/.*\//g, "../");
                     // ersetze -fhhnet. mit -internet.
                     if (env && env === "internet") {
@@ -102,11 +102,11 @@ module.exports = {
             cwd: config.lgvconfig.src + "/",
             src: [examplesRestServices, examplesServices, "style.json", "img/krankenhaus.png"],
             dest: "examples-" + config.pkg.version + "/lgv-config"
-        },
+        }/*,
         {
             src: "doc/**",
             dest: "examples-" + config.pkg.version + "/"
-        }]
+        }*/]
     },
     examplesPortal: {
         files: [{
