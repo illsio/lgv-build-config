@@ -28,8 +28,10 @@ module.exports = {
             "js/*.js",
             "portal/**/config.js",
             "portal/**/config.json",
-            "portalconfigs/**/*.js",
-            "portalconfigs/**/*.json",
+            "portalconfigs/**/config.js",
+            "portalconfigs/**/config.json",
+            "portalconfigs/master-based-app/modules/**/*.js",
+            "portalconfigs/master-based-app/app/**/*.js",
             "modules/**/*.js"
         ],
         options: {
