@@ -74,7 +74,7 @@ module.exports = {
                     // ersetzt "../components/lgv-config" mit "/lgv-config"
                     content = content.replace(/\.\.\/components\/lgv\-config/g, "/lgv-config");
 
-                    // ersetzt "../portal*/*/" mit "../" --> Pfad für customModules
+                    // ersetzt "../portal*/*/" mit "../" --> Pfad fï¿½r customModules
                     content = content.replace(/\.\.\/portal.*\/.*\//g, "../");
                     // ersetze -fhhnet. mit -internet.
                     if (env && env === "internet") {
@@ -111,12 +111,12 @@ module.exports = {
     examplesPortal: {
         files: [{
             src: [
-                "portale/simple/config.js",
-                "portale/simple/config.json",
-                "portale/simple/index.html",
-                "portale/simpleTree/config.js",
-                "portale/simpleTree/config.json",
-                "portale/simpleTree/index.html"
+                "portalconfigs/simple/config.js",
+                "portalconfigs/simple/config.json",
+                "portalconfigs/simple/index.html",
+                "portalconfigs/simpleTree/config.js",
+                "portalconfigs/simpleTree/config.json",
+                "portalconfigs/simpleTree/index.html"
             ],
             dest: "examples-" + config.pkg.version + "/"
         }],
