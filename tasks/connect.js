@@ -36,7 +36,7 @@ module.exports = {
         options: {
             port: 9001,
             open: {
-                target: "http://localhost:9001/portale"
+                target: "http://localhost:9001/"
             },
             // keepalive: true,
             livereload: true,
@@ -462,17 +462,6 @@ module.exports = {
                    }
                 },
                 {
-                   context: "/v08_viom-system_de",
-                   host: "wfalgqw001",
-                   port: 80,
-                   https: false,
-                   changeOrigin: false,
-                   xforward: false,
-                   rewrite: {
-                       "^/v08_viom-system_de": ""
-                   }
-                },
-                {
                    context: "/bkg_suggest",
                    host: "wfalgqw001",
                    port: 80,
@@ -743,7 +732,7 @@ module.exports = {
                 },
                 {
                     context: "/viomRouting",
-                    host: "wscd0096.fhhnet.stadt.hamburg.de",
+                    host: "wfalgqw001.fhhnet.stadt.hamburg.de",
                     port: 80,
                     https: false,
                     changeOrigin: false,

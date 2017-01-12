@@ -25,8 +25,12 @@ module.exports = {
             "Gruntfile.js",
             "components/build-config/tasks/**/*.js",
             "js/*.js",
-            "portale/**/config.js",
-            "portale/**/config.json",
+            "portal/**/config.js",
+            "portal/**/config.json",
+            "portalconfigs/**/config.js",
+            "portalconfigs/**/config.json",
+            "portalconfigs/master-based-app/modules/**/*.js",
+            "portalconfigs/master-based-app/app/**/*.js",
             "modules/**/*.js"
         ],
         options: {
