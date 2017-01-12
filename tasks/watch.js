@@ -3,6 +3,7 @@
  * https://github.com/gruntjs/grunt-contrib-watch
  */
 module.exports = {
+    // tasks für master
     css: {
         files: [
             "css/*.css",
@@ -20,6 +21,24 @@ module.exports = {
         ],
         tasks: "less"
     },
+
+    // tasks für mml
+    // css: {
+    //     files: [
+    //         "modules/**/*.css"
+    //     ],
+    //     tasks: "less"
+    // },
+
+    // less: {
+    //     files: [
+    //         "css/style.less"
+    //     ],
+    //     options: {
+    //          tasks: "less",
+    //          livereload: true
+    //     }
+    // },
 
     js: {
         files: [
