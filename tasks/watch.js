@@ -5,20 +5,19 @@
 module.exports = {
     css: {
         files: [
-            "css/*.css",
             "modules/**/*.css"
         ],
-        options: {
-            livereload: true
-        }
+       tasks: ["less"]
     },
 
     less: {
         files: [
-            "css/*.less",
-            "modules/**/*.less"
+            "css/style.less"
         ],
-        tasks: "less"
+        options: {
+            tasks: "less",
+            livereload: true
+        }
     },
 
     js: {
