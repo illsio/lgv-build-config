@@ -27,6 +27,9 @@ module.exports = {
     //     files: [
     //         "modules/**/*.css"
     //     ],
+    //     options: {
+    //       livereload: true
+    //     },
     //     tasks: "less"
     // },
 
