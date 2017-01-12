@@ -5,7 +5,7 @@
 module.exports = {
     dev: {
         files: {
-            "css/style.css": "css/style.less"
+            "css/test.css": "modules/**/*.less"
         }
     }
 };
