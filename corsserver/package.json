@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "cors": "^2.8.1",
-    "express-cors": "0.0.3"
+    "express-cors": "0.0.3",
+    "express-urlrewrite": "1.2.0"
   }
 }
