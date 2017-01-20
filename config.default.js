@@ -108,6 +108,17 @@ module.exports = {
       }
     },
 
+    //Postcss
+    postcss: {
+        options: {processors: [
+                 require('postcss-prefix-selector')({prefix: '.lgv-container'})
+             ]},
+        dist: {
+            src: 'css/style.css',
+            dest: 'css/style2.css'
+        }
+    },
+
     // shared Config-files for master
     lgvconfig: {
         src: "components/lgv-config",
