@@ -1,6 +1,7 @@
 var express = require("express"),
     app = express(),
-    cors = require("cors");
+    cors = require("cors"),
+    rewrite = require("express-urlrewrite");
 
 app.use(cors({}));
 
