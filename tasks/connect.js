@@ -1,3 +1,4 @@
+var grunt = process.grunt;
 /**
  * Server config
  */
@@ -8,6 +9,10 @@ module.exports = {
         options: {
             port: 8001,
             keepalive: true,
+            protocol: "https",
+            key: grunt.file.read('node_modules/grunt-contrib-connect/tasks/certs/server.key'),
+            cert: grunt.file.read('node_modules/grunt-contrib-connect/tasks/certs/server.crt'),
+            ca: grunt.file.read('node_modules/grunt-contrib-connect/tasks/certs/ca.crt'),
             middleware: function (connect, options) {
             if (!Array.isArray(options.base)) {
                 options.base = [options.base];
@@ -36,10 +41,14 @@ module.exports = {
         options: {
             port: 9001,
             open: {
-                target: "http://localhost:9001/"
+                target: "https://localhost:9001/"
             },
             // keepalive: true,
             livereload: true,
+            protocol: "https",
+            key: grunt.file.read('node_modules/grunt-contrib-connect/tasks/certs/server.key'),
+            cert: grunt.file.read('node_modules/grunt-contrib-connect/tasks/certs/server.crt'),
+            ca: grunt.file.read('node_modules/grunt-contrib-connect/tasks/certs/ca.crt'),
             middleware: function (connect, options) {
                         if (!Array.isArray(options.base)) {
                             options.base = [options.base];

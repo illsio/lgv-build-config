@@ -1,3 +1,4 @@
+var grunt = process.grunt;
 /**
  * Run tasks whenever watched files change
  * https://github.com/gruntjs/grunt-contrib-watch
@@ -9,7 +10,10 @@ module.exports = {
             "modules/**/*.css"
         ],
         options: {
-            livereload: true
+            livereload: {
+                key: grunt.file.read('node_modules/grunt-contrib-connect/tasks/certs/server.key'),
+                cert: grunt.file.read('node_modules/grunt-contrib-connect/tasks/certs/server.crt')
+            }
         }
     },
 
@@ -35,7 +39,10 @@ module.exports = {
             "modules/**/*.js"
         ],
         options: {
-            livereload: true
+            livereload: {
+                key: grunt.file.read('node_modules/grunt-contrib-connect/tasks/certs/server.key'),
+                cert: grunt.file.read('node_modules/grunt-contrib-connect/tasks/certs/server.crt')
+            }
         }
     },
 
@@ -45,7 +52,10 @@ module.exports = {
             "portale/**/index.html"
         ],
         options: {
-            livereload: true
+            livereload: {
+                key: grunt.file.read('node_modules/grunt-contrib-connect/tasks/certs/server.key'),
+                cert: grunt.file.read('node_modules/grunt-contrib-connect/tasks/certs/server.crt')
+            }
         }
     }
 };
