@@ -83,7 +83,8 @@ module.exports = function (grunt) {
         "copy:examples",
         "copy:examplesPortal",
         "clean:woffs",
-        "compress:examples"
+        "compress:examples",
+        "compress:examplesVersion"
     ]);
 
     // a task for generating examples

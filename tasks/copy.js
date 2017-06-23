@@ -102,6 +102,17 @@ module.exports = {
             cwd: config.lgvconfig.src + "/",
             src: [examplesRestServices, examplesServices, "style.json", "img/krankenhaus.png"],
             dest: "examples-" + config.pkg.version + "/lgv-config"
+        },{
+            expand: true,
+            cwd: config.destDir.prod,
+            src: ["**", "!index.html", "!config.js", "!config.json", "!verkehrsfunctions.js"],
+            dest: "examples"
+        }, {
+            expand: true,
+            cwd: config.lgvconfig.src + "/",
+            src: [examplesRestServices, examplesServices, "style.json",
+             "img/krankenhaus.png", "img/bikeandride.png", "img/pur.png", "img/bur_schloss.png"],
+            dest: "examples" + "/lgv-config"
         }/*,
         {
             src: "doc/**",
@@ -119,6 +130,16 @@ module.exports = {
                 "portalconfigs/simpleTree/index.html"
             ],
             dest: "examples-" + config.pkg.version + "/"
+        },{
+            src: [
+                "portalconfigs/simple/config.js",
+                "portalconfigs/simple/config.json",
+                "portalconfigs/simple/index.html",
+                "portalconfigs/simpleTree/config.js",
+                "portalconfigs/simpleTree/config.json",
+                "portalconfigs/simpleTree/index.html"
+            ],
+            dest: "examples" + "/"
         }],
         options: {
             process: function (content, srcpath) {
