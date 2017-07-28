@@ -1,0 +1,12 @@
+{
+  "name": "build-config",
+  "version": "1.0.0",
+  "description": "Lokale Entwicklungstools fürs Masterportal",
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/lgv-g12/build-config.git"
+  },
+  "author": "LGV",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/lgv-g12/build-config#readme"
+}
