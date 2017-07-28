@@ -23,7 +23,7 @@ module.exports = {
             removeCombined: true,
             useStrict: false,
             paths: {
-                openlayers: "../node_modules/openlayers/ol",
+                openlayers: "../node_modules/openlayers/dist/ol",
                 jquery: "../node_modules/jquery/dist/jquery.min",
                 jqueryui: "../node_modules/jquery-ui/ui",
                 underscore: "../node_modules/underscore/underscore-min",
@@ -34,7 +34,7 @@ module.exports = {
                 bootstrap: "../node_modules/bootstrap/js",
                 colorpicker: "../node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min",
                 proj4: "../node_modules/proj4/dist/proj4",
-                videojs: "../node_modules/video.js/dist/video-js/video",
+                videojs: "../node_modules/video.js/dist/video",
                 moment: "../node_modules/moment/min/moment.min",
                 geoapi: "GeoAPI",
                 views: "views",
