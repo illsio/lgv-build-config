@@ -28,7 +28,7 @@ module.exports = {
     js: {
         files: [
             "Gruntfile.js",
-            "components/build-config/tasks/**/*.js",
+            "node_modules/build-config/tasks/**/*.js",
             "js/*.js",
             "portal/**/config.js",
             "portal/**/config.json",

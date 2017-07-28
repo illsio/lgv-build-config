@@ -41,7 +41,7 @@ module.exports = {
                 dest: config.woffs.dest
             },
 
-            // components:requirejs
+            // node_modules:requirejs
             {
                 src: [config.requirejs],
                 dest: config.destDir.prod
@@ -71,8 +71,8 @@ module.exports = {
                 // config.js
                 if (srcpath.indexOf("config.js") > -1) {
 
-                    // ersetzt "../components/lgv-config" mit "/lgv-config"
-                    content = content.replace(/\.\.\/components\/lgv\-config/g, "/lgv-config");
+                    // ersetzt "../node_modules/lgv-config" mit "/lgv-config"
+                    content = content.replace(/\.\.\/node_modules\/lgv\-config/g, "/lgv-config");
 
                     // ersetzt "../portal*/*/" mit "../" --> Pfad f�r customModules
                     content = content.replace(/\.\.\/portal.*\/.*\//g, "../");
@@ -143,9 +143,9 @@ module.exports = {
         }],
         options: {
             process: function (content, srcpath) {
-                // config.js: ersetzt "../components/lgv-config" mit "lgv-config"
+                // config.js: ersetzt "../node_modules/lgv-config" mit "lgv-config"
                 if (srcpath.indexOf("config.js") > -1) {
-                    content = content.replace(/\.\.\/components\/lgv\-config/g, "../lgv-config");
+                    content = content.replace(/\.\.\/node_modules\/lgv\-config/g, "../lgv-config");
                     // ersetze -fhhnet. mit -internet.
                     if (env && env === "internet") {
                         content = content.replace(/rest-services-fhhnet.json/g, examplesRestServices);

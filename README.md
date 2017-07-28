@@ -22,12 +22,11 @@
 
 # corsserver
 
-Lokaler Server, der CORS für alle Domains (*) konfiguriert hat. Läuft unter Port 3000 und bietet das Master-Portal unter lgv-cors an, wenn im Master-Ordner unter components installiert.
+Lokaler Server, der CORS für alle Domains (*) konfiguriert hat. Läuft unter Port 3000 und bietet das Master-Portal unter lgv-cors an, wenn im Master-Ordner unter node_modules installiert.
 Diese Schritte sind notwendig im Master-Ordner, um den Server zu installieren und zu starten:
 
 ```
-# bower update build-config
-# cd components/build-config/corsserver
+# cd node_modules/build-config/corsserver
 # npm install
 # node server.js
 ```

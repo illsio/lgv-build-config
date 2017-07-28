@@ -70,6 +70,6 @@ module.exports = {
                         return middlewares;
                     }
         },
-        proxies: grunt.file.readJSON('components/lgv-config/proxy-conf.json')
+        proxies: grunt.file.readJSON('node_modules/lgv-config/proxy-conf.json')
     }
 };

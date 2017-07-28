@@ -18,13 +18,13 @@ module.exports = {
         temp: "dist/<%= pkg.version %>/"
     },
 
-    requirejs: "components/requirejs/require.js",
+    requirejs: "node_modules/requirejs/require.js",
 
     // All files that should be checked with JSHint
     jsHintFiles: [
         "Gruntfile.js",
         "*.js",
-        "components/build-config/tasks/**/*.js",
+        "node_modules/build-config/tasks/**/*.js",
         "js/**/*.js",
         "portale/**/config.js",
         "modules/**/*.js"
@@ -57,7 +57,7 @@ module.exports = {
 
     // woff files
     woffs: {
-        src: "components/lgv-config/css/woffs",
+        src: "node_modules/lgv-config/css/woffs",
         dest: "dist/<%= pkg.version %>/" + name + "/css/woffs"
     },
 
@@ -87,7 +87,7 @@ module.exports = {
 
     // Fonts
     fonts: {
-        src: "components/bootstrap/dist/fonts",
+        src: "node_modules/bootstrap/dist/fonts",
         dest: "dist/<%= pkg.version %>/" + name + "/fonts"
     },
 
@@ -107,10 +107,10 @@ module.exports = {
         }
       }
     },
-    
+
     // shared Config-files for master
     lgvconfig: {
-        src: "components/lgv-config",
+        src: "node_modules/lgv-config",
         dest: "lgv-config"
     }
 };

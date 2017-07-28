@@ -37,7 +37,7 @@ module.exports = function (grunt) {
 
     var config = deepExtend({
         pkg: require("../../package")
-    }, loadTaskConfig("components/build-config/tasks"));
+    }, loadTaskConfig("node_modules/build-config/tasks"));
 
     // Load project configuration
     grunt.initConfig(config);
