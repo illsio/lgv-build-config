@@ -43,7 +43,8 @@ module.exports = {
                 config: "empty:",
                 app: "app",
                 templates: "../templates",
-                modules: "../modules"
+                modules: "../modules",
+				d3: "../node_modules/d3/build/d3.min"
             },
             shim: {
                 bootstrap: {
