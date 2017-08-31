@@ -18,6 +18,10 @@ module.exports = {
                     preamble: config.banner
                 }
             },
+            out: config.js.dest + "main.js",
+            preserveLicenseComments: false,
+            removeCombined: true,
+            useStrict: false,
             paths: {
                 "bootstrap-toggle": "../node_modules/bootstrap-toggle/js/bootstrap-toggle.min",
                 openlayers: "../node_modules/openlayers/dist/ol",
