@@ -64,6 +64,12 @@ module.exports = {
                 src: [path + "/*.js", path + "/index.html", path + "/*.php", path + "/*.json"],
                 dest: config.destDir.prod,
                 flatten: true
+            },
+            {
+                expand: true,
+                src: path + "/myJsons/*.json",
+                dest: config.destDir.prod + "/myJsons/",
+                flatten: true
             }
         ],
         options: {
