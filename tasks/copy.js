@@ -13,7 +13,7 @@ var config = require("../config.default"),
 if (grunt.option("env") === "internet") {
     env = "internet";
     examplesRestServices = "rest-services-internet.json";
-    examplesServices = "services-internet-webatlas.json";
+    examplesServices = "services-internet.json";
 }
 
 module.exports = {
