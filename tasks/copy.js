@@ -128,22 +128,22 @@ module.exports = {
     examplesPortal: {
         files: [{
             src: [
-                "portalconfigs/simple/config.js",
-                "portalconfigs/simple/config.json",
-                "portalconfigs/simple/index.html",
-                "portalconfigs/simpleTree/config.js",
-                "portalconfigs/simpleTree/config.json",
-                "portalconfigs/simpleTree/index.html"
+                "portal/master/config.js",
+                "portal/master/config.json",
+                "portal/master/index.html",
+                "portal/masterTree/config.js",
+                "portal/masterTree/config.json",
+                "portal/masterTree/index.html"
             ],
             dest: "examples-" + config.pkg.version + "/"
         },{
             src: [
-                "portalconfigs/simple/config.js",
-                "portalconfigs/simple/config.json",
-                "portalconfigs/simple/index.html",
-                "portalconfigs/simpleTree/config.js",
-                "portalconfigs/simpleTree/config.json",
-                "portalconfigs/simpleTree/index.html"
+                "portal/master/config.js",
+                "portal/master/config.json",
+                "portal/master/index.html",
+                "portal/masterTree/config.js",
+                "portal/masterTree/config.json",
+                "portal/masterTree/index.html"
             ],
             dest: "examples" + "/"
         }],
@@ -157,8 +157,12 @@ module.exports = {
                         content = content.replace(/rest-services-fhhnet.json/g, examplesRestServices);
                         content = content.replace(/services-fhhnet.json/g, examplesServices);
                     }
-
-                    return content;
+                }
+                if (srcpath.indexOf("config.json") > -1) {
+                    // routing entfernen
+                    content = JSON.parse(content);
+                    delete content.Portalconfig.menu.tools.children.routing;
+                    content = JSON.stringify(content, null, 4);
                 }
                 return content;
             }
