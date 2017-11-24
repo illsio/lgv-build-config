@@ -7,14 +7,8 @@ var config = require("../config.default"),
     grunt = process.grunt,
     path = grunt.option("path") || "portale/master",
     env = "fhhnet",
-    examplesRestServices = "rest-services-fhhnet.json",
-    examplesServices = "services-fhhnet.json";
-
-if (grunt.option("env") === "internet") {
-    env = "internet";
-    examplesRestServices = "rest-services-internet.json";
+    examplesRestServices = "rest-services-internet.json",
     examplesServices = "services-internet.json";
-}
 
 module.exports = {
     dist: {
@@ -153,9 +147,12 @@ module.exports = {
                 if (srcpath.indexOf("config.js") > -1) {
                     content = content.replace(/\.\.\/node_modules\/lgv\-config/g, "../lgv-config");
                     // ersetze -fhhnet. mit -internet.
-                    if (env && env === "internet") {
-                        content = content.replace(/rest-services-fhhnet.json/g, examplesRestServices);
+                    content = content.replace(/rest-services-fhhnet.json/g, examplesRestServices);
+                    if (content.indexOf("services-fhhnet.json") !== -1) {
                         content = content.replace(/services-fhhnet.json/g, examplesServices);
+                    }
+                    else {
+                        content = content.replace(/services-fhhnet-ALL.json/g, examplesServices);
                     }
                 }
                 if (srcpath.indexOf("config.json") > -1) {
