@@ -4,11 +4,14 @@
 "use strict";
 
 var config = require("../config.default"),
+    _ = require("underscore"),
+    $ = require("jquery"),
     grunt = process.grunt,
     path = grunt.option("path") || "portale/master",
     env = "fhhnet",
     examplesRestServices = "rest-services-internet.json",
-    examplesServices = "services-internet.json";
+    examplesServices = "services-internet.json",
+    internetJsonIds = [];
 
 module.exports = {
     dist: {
@@ -117,27 +120,36 @@ module.exports = {
         {
             src: "doc/**",
             dest: "examples-" + config.pkg.version + "/"
-        }*/]
+        }*/],
+        options: {
+            process: function (content, srcpath) {
+                if (srcpath.indexOf("services-internet.json") > -1) {
+                    var internetJSON = JSON.parse(content);
+
+                    internetJsonIds = _.pluck(internetJSON, "id");
+                }
+            }
+        }
     },
     examplesPortal: {
         files: [{
             src: [
-                "portal/master/config.js",
-                "portal/master/config.json",
-                "portal/master/index.html",
-                "portal/masterTree/config.js",
-                "portal/masterTree/config.json",
-                "portal/masterTree/index.html"
+                // "portal/master/config.js",
+                // "portal/master/config.json",
+                // "portal/master/index.html",
+                // "portal/masterTree/config.js",
+                // "portal/masterTree/config.json",
+                // "portal/masterTree/index.html"
             ],
             dest: "examples-" + config.pkg.version + "/"
         },{
             src: [
-                "portal/master/config.js",
-                "portal/master/config.json",
-                "portal/master/index.html",
-                "portal/masterTree/config.js",
-                "portal/masterTree/config.json",
-                "portal/masterTree/index.html"
+                // "portal/master/config.js",
+                "portal/master/config.json"
+                // "portal/master/index.html",
+                // "portal/masterTree/config.js",
+                // "portal/masterTree/config.json",
+                // "portal/masterTree/index.html"
             ],
             dest: "examples" + "/"
         }],
@@ -159,6 +171,8 @@ module.exports = {
                     // routing entfernen
                     content = JSON.parse(content);
                     delete content.Portalconfig.menu.tools.children.routing;
+                    // content = checkEntryForInternet(content);
+                    content = deleteNonInternetIds(content, "id");
                     content = JSON.stringify(content, null, 4);
                 }
                 return content;
@@ -166,3 +180,119 @@ module.exports = {
         }
     }
 };
+// function checkEntryForInternet (content) {
+//     // console.log(config.pkg.version);
+//     var attr = "id",
+//         foundObjects = [],
+//         layerIds = [],
+//         plainLayerIds = [];
+
+//     findObjWithAttr(foundObjects, content.Themenconfig, attr);
+//     layerIds = _.pluck(foundObjects, attr);
+//     plainLayerIds = getPlainLayerIds(layerIds);
+
+//     _.each(plainLayerIds, function (layerId) {
+//         if (!_.contains(internetJsonIds, layerId)) {
+//             // TODO: layer aus config werfen
+//         }
+//     });
+
+//     return content;
+// }
+function matchesInternetJson(id) {
+    if (!_.contains(internetJsonIds, id)) {
+        console.log(id);
+    }
+}
+function deleteNonInternetIds (json, attr) {
+    if (_.has(json, attr)) {
+        // id: array of strings
+        if (_.isArray(json[attr]) && isArrayOfStrings(json[attr])) {
+            _.each(json[attr], function (id) {
+                matchesInternetJson(id);
+            });
+        }
+        // id: array of objects
+        else if (_.isArray(json[attr]) && isArrayOfObjects(json[attr])) {
+            _.each(json[attr], function (id) {
+                matchesInternetJson(id[attr]);
+            });
+        }
+
+        else {
+            matchesInternetJson(json[attr]);
+        }
+    }
+    _.each(_.keys(json), function (key) {
+        if (_.isObject(json[key])) {
+            // console.log(typeof json[key]);
+            deleteNonInternetIds(json[key], attr);
+        }
+        else if (_.isArray(json[key])) {
+            _.each(json[key], function (arrayitem) {
+               deleteNonInternetIds(arrayitem, attr);
+            });
+        }
+    });
+    return json;
+}
+
+// function getPlainLayerIds (layerIds) {
+//     var plainLayerIds = [];
+
+//      _.each(layerIds, function (layerId) {
+//         if (_.isString(layerId)) {
+//             plainLayerIds.push(layerId);
+//         }
+//         else if (isArrayOfStrings(layerId)) {
+//             _.each(layerId, function (layerIdFromArray) {
+//                 plainLayerIds.push(layerIdFromArray);
+//             });
+//         }
+//     });
+//      return plainLayerIds;
+// }
+
+function isArrayOfStrings (array) {
+    var isArrayOfStrings = true;
+
+    _.each(array, function (arrayitem) {
+        if (!_.isString(arrayitem)) {
+            isArrayOfStrings = false;
+        }
+    });
+
+    return isArrayOfStrings;
+}
+function isArrayOfObjects (array) {
+    var isArrayOfObjects = true;
+
+    _.each(array, function (arrayitem) {
+        if (!_.isObject(arrayitem)) {
+            isArrayOfObjects = false;
+        }
+    });
+
+    return isArrayOfObjects;
+}
+
+// function findObjWithAttr (foundObjects, json, attr) {
+//     if (_.has(json, attr)) {
+//         foundObjects.push(json);
+//         if (!_.contains(internetJsonIds, json[attr])) {
+//             // TODO: layer aus config werfen
+//             json = removeIdFromConfig(json, json[attr]);
+//         }
+//     }
+//     _.each(_.keys(json), function (key) {
+//         if (_.isObject(json[key])) {
+//             // console.log(typeof json[key]);
+//             findObjWithAttr(foundObjects, json[key], attr);
+//         }
+//         else if (_.isArray(json[key])) {
+//             _.each(json[key], function (arrayitem) {
+//                findObjWithAttr(foundObjects, arrayitem, attr);
+//             });
+//         }
+//     });
+// }
