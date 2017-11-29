@@ -134,22 +134,22 @@ module.exports = {
     examplesPortal: {
         files: [{
             src: [
-                // "portal/master/config.js",
-                // "portal/master/config.json",
-                // "portal/master/index.html",
-                // "portal/masterTree/config.js",
-                // "portal/masterTree/config.json",
-                // "portal/masterTree/index.html"
+                "portal/master/config.js",
+                "portal/master/config.json",
+                "portal/master/index.html",
+                "portal/masterTree/config.js",
+                "portal/masterTree/config.json",
+                "portal/masterTree/index.html"
             ],
             dest: "examples-" + config.pkg.version + "/"
         },{
             src: [
-                // "portal/master/config.js",
-                "portal/master/config.json"
-                // "portal/master/index.html",
-                // "portal/masterTree/config.js",
-                // "portal/masterTree/config.json",
-                // "portal/masterTree/index.html"
+                "portal/master/config.js",
+                "portal/master/config.json",
+                "portal/master/index.html",
+                "portal/masterTree/config.js",
+                "portal/masterTree/config.json",
+                "portal/masterTree/index.html"
             ],
             dest: "examples" + "/"
         }],
@@ -174,7 +174,6 @@ module.exports = {
                     delete content["Portalconfig"]["menu"]["tools"]["children"]["routing"];
 
                     content = checkEntryForInternet(content);
-                    // deleteNonInternetIds(content, content, "id");
                     content = JSON.stringify(content, null, 4);
                 }
                 return content;
@@ -203,12 +202,44 @@ function checkEntryForInternet (content) {
         var newContent = content;
 
         _.each(nonInternetIds, function (id) {
-            var objFound = deleteObjById(newContent, newContent.Themenconfig, attr, id, ["Themenconfig"]);
+            var objFound = deleteObjById(newContent, newContent.Themenconfig, attr, id);
             newContent = objFound.content;
         });
+        content = clean(newContent, newContent.Themenconfig, attr).content;
     }
 
     return content;
+}
+
+function clean(content, json, attr) {
+    var returnObj = {
+        emptyArray: false,
+        content: content
+    };
+    _.each(_.keys(json), function (key) {
+        if (_.isArray(json[key])) {
+            if (json[key].length === 0) {
+                json = _.without(json, json[key]);
+                returnObj = {
+                    emptyArray: true,
+                    content: content
+                };
+            }
+            else {
+                _.each(json[key], function (arrayitem) {
+                    returnObj = clean(content, arrayitem, attr);
+                    if (returnObj.emptyArray) {
+                        json[key] = _.without(json[key], arrayitem);
+                    }
+                });
+            }
+        }
+        else if (_.isObject(json[key])) {
+            // console.log(typeof json[key]);
+            clean(content, json[key], attr);
+        }
+    });
+    return returnObj;
 }
 function matchesInternetJson(id) {
     var isMatch = true;
@@ -219,62 +250,38 @@ function matchesInternetJson(id) {
     return isMatch;
 }
 // recursiv
-function deleteObjById (content, json, attr, nonInternetId, jsonpath) {
+function deleteObjById (content, json, attr, nonInternetId) {
     if (_.has(json, attr)) {
         if (_.isArray(json[attr]) && isArrayOfStrings(json[attr]) && _.indexOf(json[attr], nonInternetId) > -1) {
             json[attr] = _.without(json[attr], nonInternetId);
         }
-        else if (_.isArray(json[attr]) && isArrayOfObjects(json[attr]) && _.find(json[attr]), {id: nonInternetId}) {
-           console.log(nonInternetId);
-           console.log(json[attr]);
-            // _.each(json[attr], function (id) {
-            //     if (id[attr] === id) {
-            //         // console.log(id[attr]);
-            //     }
-            // });
+        // gruppenlayer
+        else if (_.isArray(json[attr]) && isArrayOfObjects(json[attr]) && _.find(json[attr], {id: nonInternetId})) {
+           json[attr] = _.without(json[attr], _.find(json[attr], {id: nonInternetId}));
         }
         return {
             found: true,
-            path: jsonpath,
             content: content
         };
     }
 
-    _.each(_.keys(json), function (key, index) {
+    _.each(_.keys(json), function (key) {
         var returnObj;
-        // console.log(key);
+
         if (_.isArray(json[key])) {
-            jsonpath.push(key);
-            _.each(json[key], function (arrayitem, index) {
-                if (index > 0) {
-                    jsonpath = _.without(jsonpath, _.last(jsonpath));
-                }
-                jsonpath.push(index);
-                // console.log(jsonpath);
-                returnObj = deleteObjById(content, arrayitem, attr, nonInternetId, jsonpath);
+            _.each(json[key], function (arrayitem) {
+                returnObj = deleteObjById(content, arrayitem, attr, nonInternetId);
                 if (returnObj.found && arrayitem[attr] === nonInternetId) {
                     json[key] = _.without(json[key], arrayitem);
                 }
-                jsonpath = returnObj.path;
-
             });
         }
         else if (_.isObject(json[key])) {
-            jsonpath.push(key);
-
-            returnObj = deleteObjById(content, json[key], attr, nonInternetId, jsonpath);
-            jsonpath = returnObj.path;
-        }
-        // if (index === _.keys(json).length - 1 && !objectFound) {
-        if (index === _.keys(json).length - 1) {
-            // console.log(123);
-            // jsonpath = _.without(jsonpath, _.last(jsonpath));
-            jsonpath = ["Themenconfig"];
+            returnObj = deleteObjById(content, json[key], attr, nonInternetId);
         }
     });
     return {
             found: false,
-            path: jsonpath,
             content: content
         };
 }
@@ -323,14 +330,14 @@ function findObjWithAttr (foundObjects, json, attr) {
         foundObjects.push(json);
     }
     _.each(_.keys(json), function (key) {
-        if (_.isObject(json[key])) {
-            // console.log(typeof json[key]);
-            findObjWithAttr(foundObjects, json[key], attr);
-        }
-        else if (_.isArray(json[key])) {
+        if (_.isArray(json[key])) {
             _.each(json[key], function (arrayitem) {
                findObjWithAttr(foundObjects, arrayitem, attr);
             });
+        }
+        else if (_.isObject(json[key])) {
+            // console.log(typeof json[key]);
+            findObjWithAttr(foundObjects, json[key], attr);
         }
     });
 }
