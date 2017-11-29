@@ -170,9 +170,11 @@ module.exports = {
                 if (srcpath.indexOf("config.json") > -1) {
                     // routing entfernen
                     content = JSON.parse(content);
-                    delete content.Portalconfig.menu.tools.children.routing;
-                    // content = checkEntryForInternet(content);
-                    content = deleteNonInternetIds(content, "id");
+                    // ["Portalconfig"]["menu"]["tools"]["children"]["routing"]
+                    delete content["Portalconfig"]["menu"]["tools"]["children"]["routing"];
+
+                    content = checkEntryForInternet(content);
+                    // deleteNonInternetIds(content, content, "id");
                     content = JSON.stringify(content, null, 4);
                 }
                 return content;
@@ -180,78 +182,118 @@ module.exports = {
         }
     }
 };
-// function checkEntryForInternet (content) {
-//     // console.log(config.pkg.version);
-//     var attr = "id",
-//         foundObjects = [],
-//         layerIds = [],
-//         plainLayerIds = [];
+function checkEntryForInternet (content) {
+    // console.log(config.pkg.version);
+    var attr = "id",
+        foundObjects = [], // objekte mit attribut id
+        layerIds = [], // ids der attribute (string, kann auch array[string] und array[{}] sein)
+        plainLayerIds = [], // nur ids (arrays wurden aufgedröselt)
+        nonInternetIds = []; //ids die nicht in der internetjson sind
 
-//     findObjWithAttr(foundObjects, content.Themenconfig, attr);
-//     layerIds = _.pluck(foundObjects, attr);
-//     plainLayerIds = getPlainLayerIds(layerIds);
+    findObjWithAttr(foundObjects, content.Themenconfig, attr);
+    layerIds = _.pluck(foundObjects, attr);
+    plainLayerIds = getPlainLayerIds(layerIds);
 
-//     _.each(plainLayerIds, function (layerId) {
-//         if (!_.contains(internetJsonIds, layerId)) {
-//             // TODO: layer aus config werfen
-//         }
-//     });
+    _.each(plainLayerIds, function (layerId) {
+        if (!matchesInternetJson(layerId)) {
+            nonInternetIds.push(layerId);
+        }
+    });
+    if (nonInternetIds.length > 0) {
+        var newContent = content;
 
-//     return content;
-// }
-function matchesInternetJson(id) {
-    if (!_.contains(internetJsonIds, id)) {
-        console.log(id);
+        _.each(nonInternetIds, function (id) {
+            var objFound = deleteObjById(newContent, newContent.Themenconfig, attr, id, ["Themenconfig"]);
+            newContent = objFound.content;
+        });
     }
+
+    return content;
 }
-function deleteNonInternetIds (json, attr) {
-    if (_.has(json, attr)) {
-        // id: array of strings
-        if (_.isArray(json[attr]) && isArrayOfStrings(json[attr])) {
-            _.each(json[attr], function (id) {
-                matchesInternetJson(id);
-            });
-        }
-        // id: array of objects
-        else if (_.isArray(json[attr]) && isArrayOfObjects(json[attr])) {
-            _.each(json[attr], function (id) {
-                matchesInternetJson(id[attr]);
-            });
-        }
+function matchesInternetJson(id) {
+    var isMatch = true;
 
-        else {
-            matchesInternetJson(json[attr]);
-        }
+    if (!_.contains(internetJsonIds, id)) {
+        isMatch = false;
     }
-    _.each(_.keys(json), function (key) {
-        if (_.isObject(json[key])) {
-            // console.log(typeof json[key]);
-            deleteNonInternetIds(json[key], attr);
+    return isMatch;
+}
+// recursiv
+function deleteObjById (content, json, attr, nonInternetId, jsonpath) {
+    if (_.has(json, attr)) {
+        if (_.isArray(json[attr]) && isArrayOfStrings(json[attr]) && _.indexOf(json[attr], nonInternetId) > -1) {
+            json[attr] = _.without(json[attr], nonInternetId);
         }
-        else if (_.isArray(json[key])) {
-            _.each(json[key], function (arrayitem) {
-               deleteNonInternetIds(arrayitem, attr);
+        else if (_.isArray(json[attr]) && isArrayOfObjects(json[attr]) && _.find(json[attr]), {id: nonInternetId}) {
+           console.log(nonInternetId);
+           console.log(json[attr]);
+            // _.each(json[attr], function (id) {
+            //     if (id[attr] === id) {
+            //         // console.log(id[attr]);
+            //     }
+            // });
+        }
+        return {
+            found: true,
+            path: jsonpath,
+            content: content
+        };
+    }
+
+    _.each(_.keys(json), function (key, index) {
+        var returnObj;
+        // console.log(key);
+        if (_.isArray(json[key])) {
+            jsonpath.push(key);
+            _.each(json[key], function (arrayitem, index) {
+                if (index > 0) {
+                    jsonpath = _.without(jsonpath, _.last(jsonpath));
+                }
+                jsonpath.push(index);
+                // console.log(jsonpath);
+                returnObj = deleteObjById(content, arrayitem, attr, nonInternetId, jsonpath);
+                if (returnObj.found && arrayitem[attr] === nonInternetId) {
+                    json[key] = _.without(json[key], arrayitem);
+                }
+                jsonpath = returnObj.path;
+
+            });
+        }
+        else if (_.isObject(json[key])) {
+            jsonpath.push(key);
+
+            returnObj = deleteObjById(content, json[key], attr, nonInternetId, jsonpath);
+            jsonpath = returnObj.path;
+        }
+        // if (index === _.keys(json).length - 1 && !objectFound) {
+        if (index === _.keys(json).length - 1) {
+            // console.log(123);
+            // jsonpath = _.without(jsonpath, _.last(jsonpath));
+            jsonpath = ["Themenconfig"];
+        }
+    });
+    return {
+            found: false,
+            path: jsonpath,
+            content: content
+        };
+}
+
+function getPlainLayerIds (layerIds) {
+    var plainLayerIds = [];
+
+     _.each(layerIds, function (layerId) {
+        if (_.isString(layerId)) {
+            plainLayerIds.push(layerId);
+        }
+        else if (isArrayOfStrings(layerId)) {
+            _.each(layerId, function (layerIdFromArray) {
+                plainLayerIds.push(layerIdFromArray);
             });
         }
     });
-    return json;
+     return plainLayerIds;
 }
-
-// function getPlainLayerIds (layerIds) {
-//     var plainLayerIds = [];
-
-//      _.each(layerIds, function (layerId) {
-//         if (_.isString(layerId)) {
-//             plainLayerIds.push(layerId);
-//         }
-//         else if (isArrayOfStrings(layerId)) {
-//             _.each(layerId, function (layerIdFromArray) {
-//                 plainLayerIds.push(layerIdFromArray);
-//             });
-//         }
-//     });
-//      return plainLayerIds;
-// }
 
 function isArrayOfStrings (array) {
     var isArrayOfStrings = true;
@@ -276,23 +318,19 @@ function isArrayOfObjects (array) {
     return isArrayOfObjects;
 }
 
-// function findObjWithAttr (foundObjects, json, attr) {
-//     if (_.has(json, attr)) {
-//         foundObjects.push(json);
-//         if (!_.contains(internetJsonIds, json[attr])) {
-//             // TODO: layer aus config werfen
-//             json = removeIdFromConfig(json, json[attr]);
-//         }
-//     }
-//     _.each(_.keys(json), function (key) {
-//         if (_.isObject(json[key])) {
-//             // console.log(typeof json[key]);
-//             findObjWithAttr(foundObjects, json[key], attr);
-//         }
-//         else if (_.isArray(json[key])) {
-//             _.each(json[key], function (arrayitem) {
-//                findObjWithAttr(foundObjects, arrayitem, attr);
-//             });
-//         }
-//     });
-// }
+function findObjWithAttr (foundObjects, json, attr) {
+    if (_.has(json, attr)) {
+        foundObjects.push(json);
+    }
+    _.each(_.keys(json), function (key) {
+        if (_.isObject(json[key])) {
+            // console.log(typeof json[key]);
+            findObjWithAttr(foundObjects, json[key], attr);
+        }
+        else if (_.isArray(json[key])) {
+            _.each(json[key], function (arrayitem) {
+               findObjWithAttr(foundObjects, arrayitem, attr);
+            });
+        }
+    });
+}
