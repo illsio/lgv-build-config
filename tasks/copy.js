@@ -123,11 +123,12 @@ module.exports = {
         }*/],
         options: {
             process: function (content, srcpath) {
-                if (srcpath.indexOf("services-internet.json") > -1) {
+                if (srcpath.indexOf("lgv-config/services-internet.json") > -1) {
                     var internetJSON = JSON.parse(content);
 
                     internetJsonIds = _.pluck(internetJSON, "id");
                 }
+                return content;
             }
         }
     },
@@ -170,8 +171,7 @@ module.exports = {
                 if (srcpath.indexOf("config.json") > -1) {
                     // routing entfernen
                     content = JSON.parse(content);
-                    // ["Portalconfig"]["menu"]["tools"]["children"]["routing"]
-                    delete content["Portalconfig"]["menu"]["tools"]["children"]["routing"];
+                    delete content.Portalconfig.menu.tools.children.routing;
 
                     content = checkEntryForInternet(content);
                     content = JSON.stringify(content, null, 4);
@@ -182,7 +182,6 @@ module.exports = {
     }
 };
 function checkEntryForInternet (content) {
-    // console.log(config.pkg.version);
     var attr = "id",
         foundObjects = [], // objekte mit attribut id
         layerIds = [], // ids der attribute (string, kann auch array[string] und array[{}] sein)
@@ -210,8 +209,10 @@ function checkEntryForInternet (content) {
 
     return content;
 }
-
-function clean(content, json, attr) {
+/*
+*löscht aus der json alle objekte mit leeren Arrays
+ */
+function clean (content, json, attr) {
     var returnObj = {
         emptyArray: false,
         content: content
@@ -235,13 +236,12 @@ function clean(content, json, attr) {
             }
         }
         else if (_.isObject(json[key])) {
-            // console.log(typeof json[key]);
             clean(content, json[key], attr);
         }
     });
     return returnObj;
 }
-function matchesInternetJson(id) {
+function matchesInternetJson (id) {
     var isMatch = true;
 
     if (!_.contains(internetJsonIds, id)) {
@@ -299,7 +299,7 @@ function getPlainLayerIds (layerIds) {
             });
         }
     });
-     return plainLayerIds;
+    return plainLayerIds;
 }
 
 function isArrayOfStrings (array) {
@@ -336,7 +336,6 @@ function findObjWithAttr (foundObjects, json, attr) {
             });
         }
         else if (_.isObject(json[key])) {
-            // console.log(typeof json[key]);
             findObjWithAttr(foundObjects, json[key], attr);
         }
     });
