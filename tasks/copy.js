@@ -103,7 +103,7 @@ module.exports = {
         }, {
             expand: true,
             cwd: config.lgvconfig.src + "/",
-            src: [examplesRestServices, examplesServices, "style.json", "img/krankenhaus.png"],
+            src: [examplesRestServices, "style.json", "img/krankenhaus.png"],
             dest: "examples-" + config.pkg.version + "/lgv-config"
         },{
             expand: true,
@@ -113,21 +113,32 @@ module.exports = {
         }, {
             expand: true,
             cwd: config.lgvconfig.src + "/",
-            src: [examplesRestServices, examplesServices, "style.json",
+            src: [examplesRestServices, "style.json",
              "img/krankenhaus.png", "img/bikeandride.png", "img/pur.png", "img/bur_schloss.png"],
             dest: "examples" + "/lgv-config"
         }/*,
         {
             src: "doc/**",
             dest: "examples-" + config.pkg.version + "/"
-        }*/],
+        }*/]
+    },
+    examplesInternetServices: {
+        files: [{
+            expand: true,
+            cwd: config.lgvconfig.src + "/",
+            src: [examplesServices],
+            dest: "examples-" + config.pkg.version + "/lgv-config"
+        },{
+            expand: true,
+            cwd: config.lgvconfig.src + "/",
+            src: [examplesServices],
+            dest: "examples" + "/lgv-config"
+        }],
         options: {
             process: function (content, srcpath) {
-                if (srcpath.indexOf("lgv-config/services-internet.json") > -1) {
                     var internetJSON = JSON.parse(content);
 
                     internetJsonIds = _.pluck(internetJSON, "id");
-                }
                 return content;
             }
         }
