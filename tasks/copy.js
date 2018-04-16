@@ -13,6 +13,12 @@ var config = require("../config.default"),
     examplesServices = "services-internet.json",
     internetJsonIds = [];
 
+    if (grunt.option("env") === "internet") {
+        env = "internet";
+        examplesRestServices = "rest-services-internet.json";
+        examplesServices = "services-internet.json";
+}
+
 module.exports = {
     dist: {
         files: [
@@ -77,10 +83,11 @@ module.exports = {
                     // ersetzt "../node_modules/lgv-config" mit "/lgv-config"
                     content = content.replace(/\.\.\/node_modules\/lgv\-config/g, "/lgv-config");
 
-                    // ersetzt "../portal*/*/" mit "../" --> Pfad f�r customModules
+                    // ersetzt "../portal*/*/" mit "../" --> Pfad für customModules
                     content = content.replace(/\.\.\/portal.*\/.*\//g, "../");
                     // ersetze -fhhnet. mit -internet.
                     if (env && env === "internet") {
+                        content = content.replace(/-fhhnet-ALL./g, "-internet.");
                         content = content.replace(/-fhhnet./g, "-internet.");
                     }
                     return content;
