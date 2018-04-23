@@ -48,7 +48,8 @@ module.exports = {
                 "underscore.string": "../node_modules/underscore.string/dist/underscore.string.min",
                 views: "views",
                 videojs: "../node_modules/video.js/dist/video.min",
-                videojsflash: "../node_modules/videojs-flash/dist/videojs-flash.min"
+                videojsflash: "../node_modules/videojs-flash/dist/videojs-flash.min",
+                highcharts: "../node_modules/highcharts/highcharts"
             },
             shim: {
                 bootstrap: {
@@ -59,6 +60,9 @@ module.exports = {
                 },
                 openlayers: {
                     exports: "ol"
+                },
+                highcharts: {
+                    deps: ["jquery"]
                 }
             },
             map: {
