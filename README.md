@@ -1,3 +1,23 @@
+CSL
+=================
+
+Command für den Grunt build
+
+* grunt build --path=portal/master --name=master-p --env=internet
+
+Kopieren 
+* 'lgv-config' Ordner in 'C:\Users\CSL\IdeaProjects\masterP\lgv\dist\2.0.1\master-p'
+
+Navigate (for netlify)
+* cd C:\Users\CSL\IdeaProjects\masterP\lgv\dist\2.0.1\master-p
+
+netlify (braucht ihr einen eigenen accoutn ...)
+* netlify deploy -s master-p
+
+
+
+
+
 # LGV Build Configuration for Grunt
 #
 #### Links zu den eingesetzten Tasks
