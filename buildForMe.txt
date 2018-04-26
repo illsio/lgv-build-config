@@ -1,0 +1,11 @@
+#Command für den Grunt build
+
+grunt build --path=portal/master --name=master-p --env=internet
+
+#Kopieren des 'lgv-config' Ordners
+
+#Navigate
+cd C:\Users\CSL\IdeaProjects\masterP\lgv\dist\2.0.1\master-p
+
+#netlify
+netlify deploy -s master-p
